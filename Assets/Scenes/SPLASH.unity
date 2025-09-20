@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForInput: 0
-  SceneToLoad: SurvivalEnglish
+  SceneToLoad: LoginScreen
   Pause: 2
   Progress: 0
 --- !u!1 &937916573
@@ -325,7 +325,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 210, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937916575
 MonoBehaviour:
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: tabsBookMaps
+  m_text: tabsQuiz
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c980b7b9d8d245639eeb7672285292a, type: 2}
   m_sharedMaterial: {fileID: 4146861263971222633, guid: 3c980b7b9d8d245639eeb7672285292a, type: 2}
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 129.52
-  m_fontSizeBase: 129.52
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
