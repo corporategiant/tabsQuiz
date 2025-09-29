@@ -4,8 +4,9 @@ using UnityEngine.Networking; // Required for UnityWebRequest
 
 public class DisplayQuizData : MonoBehaviour
 {
-    public string phpScriptURL = "http://yourserver.com/data.php"; // Replace with your PHP script's URL
-
+    public string phpScriptURL;
+    public string username;
+    public string StudentID;
     // Define a class to match your JSON structure
     [System.Serializable]
     public class MyData
@@ -33,6 +34,14 @@ public class DisplayQuizData : MonoBehaviour
         public int CorrectAnswer4;
         public int EnvID;
         // Add other fields as per your JSON
+    }
+
+    void Start()
+    {
+       username = PlayerPrefs.GetString("username");
+       StudentID = PlayerPrefs.GetString("StudentID");    
+       phpScriptURL = "https://www.corporategiant.co.uk/tabsQuizData/"+username+StudentID+"/get_data.php";
+    
     }
 
     public void StartDisplayQuizData()

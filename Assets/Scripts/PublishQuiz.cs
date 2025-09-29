@@ -4,8 +4,10 @@ using System.Collections;
 
 public class PublishQuiz : MonoBehaviour
 {
-    public string phpUrl = "https://www.corporategiant.co.uk/tabsQuizData/write_json.php"; // Replace with your PHP script URL
+    public string phpUrl;  
         public string username;
+        public string StudentID;
+        
         public string Question1;
         public string Answer1A;
         public string Answer1B;
@@ -32,6 +34,8 @@ public class PublishQuiz : MonoBehaviour
     public class PlayerData
     {
         public string username;
+        public string StudentID;
+        
         public string Question1;
         public string Answer1A;
         public string Answer1B;
@@ -56,10 +60,19 @@ public class PublishQuiz : MonoBehaviour
 
         
     }
+    void Start()
+    {
+       username = PlayerPrefs.GetString("username");
+        Debug.Log("Publish Quiz Username Set");
+       StudentID = PlayerPrefs.GetString("StudentID");
+       phpUrl = "https://www.corporategiant.co.uk/tabsQuizData/"+username+StudentID+"/write_json.php";
+    }
 
     public void StartPublishQuiz()
     {
         username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
+
         EnvID = PlayerPrefs.GetInt("EnvID");
         Question1 = PlayerPrefs.GetString("Question1");
         Answer1A = PlayerPrefs.GetString("Answer1A");
@@ -75,17 +88,18 @@ public class PublishQuiz : MonoBehaviour
         Answer3A = PlayerPrefs.GetString("Answer3A");
         Answer3B = PlayerPrefs.GetString("Answer3B");
         Answer3C = PlayerPrefs.GetString("Answer3C");
-        CorrectAnswer3 = PlayerPrefs.GetInt("CorrectAnswer3");    
+        CorrectAnswer3 = PlayerPrefs.GetInt("CorrectAnswer3");
         Question4 = PlayerPrefs.GetString("Question4");
         Answer4A = PlayerPrefs.GetString("Answer4A");
         Answer4B = PlayerPrefs.GetString("Answer4B");
         Answer4C = PlayerPrefs.GetString("Answer4C");
         CorrectAnswer4 = PlayerPrefs.GetInt("CorrectAnswer4");
-            
+
         // Create an instance of your data
         PlayerData dataToSend = new PlayerData
         {
             username = PlayerPrefs.GetString("username"),
+            StudentID = PlayerPrefs.GetString("StudentID"),
             EnvID = PlayerPrefs.GetInt("EnvID"),
             Question1 = PlayerPrefs.GetString("Question1"),
             Answer1A = PlayerPrefs.GetString("Answer1A"),
@@ -101,12 +115,12 @@ public class PublishQuiz : MonoBehaviour
             Answer3A = PlayerPrefs.GetString("Answer3A"),
             Answer3B = PlayerPrefs.GetString("Answer3B"),
             Answer3C = PlayerPrefs.GetString("Answer3C"),
-            CorrectAnswer3 = PlayerPrefs.GetInt("CorrectAnswer3"),    
+            CorrectAnswer3 = PlayerPrefs.GetInt("CorrectAnswer3"),
             Question4 = PlayerPrefs.GetString("Question4"),
             Answer4A = PlayerPrefs.GetString("Answer4A"),
             Answer4B = PlayerPrefs.GetString("Answer4B"),
             Answer4C = PlayerPrefs.GetString("Answer4C"),
-            CorrectAnswer4 = PlayerPrefs.GetInt("CorrectAnswer4"),                
+            CorrectAnswer4 = PlayerPrefs.GetInt("CorrectAnswer4"),
         };
 
         // Convert the data object to a JSON string
