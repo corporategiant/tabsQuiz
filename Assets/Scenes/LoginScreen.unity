@@ -2912,7 +2912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForInput: 0
-  SceneToLoad: UserInputScreen
+  SceneToLoad: SPLASH
   Pause: 2
   Progress: 0
 --- !u!1 &8957085646953733323

@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaitForInput: 0
-  SceneToLoad: LoginScreen
+  SceneToLoad: UserInputScreen
   Pause: 2
   Progress: 0
 --- !u!1 &937916573
