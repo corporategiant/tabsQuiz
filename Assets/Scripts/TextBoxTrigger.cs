@@ -6,13 +6,17 @@ public class TextBoxTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Player")){
         Debug.Log("Player Entered Trigger");
         NPC.GetComponent<ClickableTextBoxes>().TextBoxClickable = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("Player")){
         Debug.Log("Player Exited Trigger");
         NPC.GetComponent<ClickableTextBoxes>().TextBoxClickable = false;
+        }
     }
 }

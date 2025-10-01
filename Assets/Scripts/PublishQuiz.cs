@@ -1,71 +1,208 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PublishQuiz : MonoBehaviour
 {
-    public string phpUrl;  
-        public string username;
-        public string StudentID;
-        
-        public string Question1;
-        public string Answer1A;
-        public string Answer1B;
-        public string Answer1C;
-        public int CorrectAnswer1;
-        public string Question2;
-        public string Answer2A;
-        public string Answer2B;
-        public string Answer2C;
-        public int CorrectAnswer2;
-        public string Question3;
-        public string Answer3A;
-        public string Answer3B;
-        public string Answer3C;
-        public int CorrectAnswer3;
-        public string Question4;
-        public string Answer4A;
-        public string Answer4B;
-        public string Answer4C;
-        public int CorrectAnswer4;
-        public int EnvID;
+    public string phpUrl;
+    public string SceneToLoad;
+    public string username;
+    public string StudentID;
+    [Header("Level 1")]
+    public string Level1Question1;
+    public string Level1Answer1A;
+    public string Level1Answer1B;
+    public string Level1Answer1C;
+    public int Level1CorrectAnswer1;
+    public string Level1Question2;
+    public string Level1Answer2A;
+    public string Level1Answer2B;
+    public string Level1Answer2C;
+    public int Level1CorrectAnswer2;
+    public string Level1Question3;
+    public string Level1Answer3A;
+    public string Level1Answer3B;
+    public string Level1Answer3C;
+    public int Level1CorrectAnswer3;
+    public string Level1Question4;
+    public string Level1Answer4A;
+    public string Level1Answer4B;
+    public string Level1Answer4C;
+    public int Level1CorrectAnswer4;
+    public int Level1EnvID;
+
+    public string Level2Question1;
+    public string Level2Answer1A;
+    public string Level2Answer1B;
+    public string Level2Answer1C;
+    public int Level2CorrectAnswer1;
+    public string Level2Question2;
+    public string Level2Answer2A;
+    public string Level2Answer2B;
+    public string Level2Answer2C;
+    public int Level2CorrectAnswer2;
+    public string Level2Question3;
+    public string Level2Answer3A;
+    public string Level2Answer3B;
+    public string Level2Answer3C;
+    public int Level2CorrectAnswer3;
+    public string Level2Question4;
+    public string Level2Answer4A;
+    public string Level2Answer4B;
+    public string Level2Answer4C;
+    public int Level2CorrectAnswer4;
+    public int Level2EnvID;
+    public string Level3Question1;
+    public string Level3Answer1A;
+    public string Level3Answer1B;
+    public string Level3Answer1C;
+    public int Level3CorrectAnswer1;
+    public string Level3Question2;
+    public string Level3Answer2A;
+    public string Level3Answer2B;
+    public string Level3Answer2C;
+    public int Level3CorrectAnswer2;
+    public string Level3Question3;
+    public string Level3Answer3A;
+    public string Level3Answer3B;
+    public string Level3Answer3C;
+    public int Level3CorrectAnswer3;
+    public string Level3Question4;
+    public string Level3Answer4A;
+    public string Level3Answer4B;
+    public string Level3Answer4C;
+    public int Level3CorrectAnswer4;
+    public int Level3EnvID;
+    public string Level4Question1;
+    public string Level4Answer1A;
+    public string Level4Answer1B;
+    public string Level4Answer1C;
+    public int Level4CorrectAnswer1;
+    public string Level4Question2;
+    public string Level4Answer2A;
+    public string Level4Answer2B;
+    public string Level4Answer2C;
+    public int Level4CorrectAnswer2;
+    public string Level4Question3;
+    public string Level4Answer3A;
+    public string Level4Answer3B;
+    public string Level4Answer3C;
+    public int Level4CorrectAnswer3;
+    public string Level4Question4;
+    public string Level4Answer4A;
+    public string Level4Answer4B;
+    public string Level4Answer4C;
+    public int Level4CorrectAnswer4;
+    public int Level4EnvID;
+
     // Example data structure to serialize to JSON
     [System.Serializable]
     public class PlayerData
     {
-        public string username;
-        public string StudentID;
-        
-        public string Question1;
-        public string Answer1A;
-        public string Answer1B;
-        public string Answer1C;
-        public int CorrectAnswer1;
-        public string Question2;
-        public string Answer2A;
-        public string Answer2B;
-        public string Answer2C;
-        public int CorrectAnswer2;
-        public string Question3;
-        public string Answer3A;
-        public string Answer3B;
-        public string Answer3C;
-        public int CorrectAnswer3;
-        public string Question4;
-        public string Answer4A;
-        public string Answer4B;
-        public string Answer4C;
-        public int CorrectAnswer4;
-        public int EnvID;
+    public string username;
+    public string StudentID;
 
-        
+      [Header("Level 1")]
+    public string Level1Question1;
+    public string Level1Answer1A;
+    public string Level1Answer1B;
+    public string Level1Answer1C;
+    public int Level1CorrectAnswer1;
+    public string Level1Question2;
+    public string Level1Answer2A;
+    public string Level1Answer2B;
+    public string Level1Answer2C;
+    public int Level1CorrectAnswer2;
+    public string Level1Question3;
+    public string Level1Answer3A;
+    public string Level1Answer3B;
+    public string Level1Answer3C;
+    public int Level1CorrectAnswer3;
+    public string Level1Question4;
+    public string Level1Answer4A;
+    public string Level1Answer4B;
+    public string Level1Answer4C;
+    public int Level1CorrectAnswer4;
+    public int Level1EnvID;
+
+      [Header("Level 2")]
+    public string Level2Question1;
+    public string Level2Answer1A;
+    public string Level2Answer1B;
+    public string Level2Answer1C;
+    public int Level2CorrectAnswer1;
+    public string Level2Question2;
+    public string Level2Answer2A;
+    public string Level2Answer2B;
+    public string Level2Answer2C;
+    public int Level2CorrectAnswer2;
+    public string Level2Question3;
+    public string Level2Answer3A;
+    public string Level2Answer3B;
+    public string Level2Answer3C;
+    public int Level2CorrectAnswer3;
+    public string Level2Question4;
+    public string Level2Answer4A;
+    public string Level2Answer4B;
+    public string Level2Answer4C;
+    public int Level2CorrectAnswer4;
+    public int Level2EnvID;
+
+        [Header("Level 3")]
+    public string Level3Question1;
+    public string Level3Answer1A;
+    public string Level3Answer1B;
+    public string Level3Answer1C;
+    public int Level3CorrectAnswer1;
+    public string Level3Question2;
+    public string Level3Answer2A;
+    public string Level3Answer2B;
+    public string Level3Answer2C;
+    public int Level3CorrectAnswer2;
+    public string Level3Question3;
+    public string Level3Answer3A;
+    public string Level3Answer3B;
+    public string Level3Answer3C;
+    public int Level3CorrectAnswer3;
+    public string Level3Question4;
+    public string Level3Answer4A;
+    public string Level3Answer4B;
+    public string Level3Answer4C;
+    public int Level3CorrectAnswer4;
+    public int Level3EnvID;
+    
+        [Header("Level 4")]
+    public string Level4Question1;
+    public string Level4Answer1A;
+    public string Level4Answer1B;
+    public string Level4Answer1C;
+    public int Level4CorrectAnswer1;
+    public string Level4Question2;
+    public string Level4Answer2A;
+    public string Level4Answer2B;
+    public string Level4Answer2C;
+    public int Level4CorrectAnswer2;
+    public string Level4Question3;
+    public string Level4Answer3A;
+    public string Level4Answer3B;
+    public string Level4Answer3C;
+    public int Level4CorrectAnswer3;
+    public string Level4Question4;
+    public string Level4Answer4A;
+    public string Level4Answer4B;
+    public string Level4Answer4C;
+    public int Level4CorrectAnswer4;
+    public int Level4EnvID;
+
+
     }
     void Start()
     {
-       username = PlayerPrefs.GetString("username");
+        username = PlayerPrefs.GetString("username");
         Debug.Log("Publish Quiz Username Set");
-       StudentID = PlayerPrefs.GetString("StudentID");
-       phpUrl = "https://www.corporategiant.co.uk/tabsQuizData/"+username+StudentID+"/write_json.php";
+        StudentID = PlayerPrefs.GetString("StudentID");
+        phpUrl = "https://www.corporategiant.co.uk/tabsQuizData/" + username + StudentID + "/write_json.php";
     }
 
     public void StartPublishQuiz()
@@ -73,54 +210,183 @@ public class PublishQuiz : MonoBehaviour
         username = PlayerPrefs.GetString("username");
         StudentID = PlayerPrefs.GetString("StudentID");
 
-        EnvID = PlayerPrefs.GetInt("EnvID");
-        Question1 = PlayerPrefs.GetString("Question1");
-        Answer1A = PlayerPrefs.GetString("Answer1A");
-        Answer1B = PlayerPrefs.GetString("Answer1B");
-        Answer1C = PlayerPrefs.GetString("Answer1C");
-        CorrectAnswer1 = PlayerPrefs.GetInt("CorrectAnswer1");
-        Question2 = PlayerPrefs.GetString("Question2");
-        Answer2A = PlayerPrefs.GetString("Answer2A");
-        Answer2B = PlayerPrefs.GetString("Answer2B");
-        Answer2C = PlayerPrefs.GetString("Answer2C");
-        CorrectAnswer2 = PlayerPrefs.GetInt("CorrectAnswer2");
-        Question3 = PlayerPrefs.GetString("Question3");
-        Answer3A = PlayerPrefs.GetString("Answer3A");
-        Answer3B = PlayerPrefs.GetString("Answer3B");
-        Answer3C = PlayerPrefs.GetString("Answer3C");
-        CorrectAnswer3 = PlayerPrefs.GetInt("CorrectAnswer3");
-        Question4 = PlayerPrefs.GetString("Question4");
-        Answer4A = PlayerPrefs.GetString("Answer4A");
-        Answer4B = PlayerPrefs.GetString("Answer4B");
-        Answer4C = PlayerPrefs.GetString("Answer4C");
-        CorrectAnswer4 = PlayerPrefs.GetInt("CorrectAnswer4");
+        Level1EnvID = PlayerPrefs.GetInt("Level1EnvID");
+        Level1Question1 = PlayerPrefs.GetString("Level1Question1");
+        Level1Answer1A = PlayerPrefs.GetString("Level1Answer1A");
+        Level1Answer1B = PlayerPrefs.GetString("Level1Answer1B");
+        Level1Answer1C = PlayerPrefs.GetString("Level1Answer1C");
+        Level1CorrectAnswer1 = PlayerPrefs.GetInt("Level1CorrectAnswer1");
+        Level1Question2 = PlayerPrefs.GetString("Level1Question2");
+        Level1Answer2A = PlayerPrefs.GetString("Level1Answer2A");
+        Level1Answer2B = PlayerPrefs.GetString("Level1Answer2B");
+        Level1Answer2C = PlayerPrefs.GetString("Level1Answer2C");
+        Level1CorrectAnswer2 = PlayerPrefs.GetInt("Level1CorrectAnswer2");
+        Level1Question3 = PlayerPrefs.GetString("Level1Question3");
+        Level1Answer3A = PlayerPrefs.GetString("Level1Answer3A");
+        Level1Answer3B = PlayerPrefs.GetString("Level1Answer3B");
+        Level1Answer3C = PlayerPrefs.GetString("Level1Answer3C");
+        Level1CorrectAnswer3 = PlayerPrefs.GetInt("Level1CorrectAnswer3");
+        Level1Question4 = PlayerPrefs.GetString("Level1Question4");
+        Level1Answer4A = PlayerPrefs.GetString("Level1Answer4A");
+        Level1Answer4B = PlayerPrefs.GetString("Level1Answer4B");
+        Level1Answer4C = PlayerPrefs.GetString("Level1Answer4C");
+        Level1CorrectAnswer4 = PlayerPrefs.GetInt("Level1CorrectAnswer4");
+
+        Level2EnvID = PlayerPrefs.GetInt("Level2EnvID");
+        Level2Question1 = PlayerPrefs.GetString("Level2Question1");
+        Level2Answer1A = PlayerPrefs.GetString("Level2Answer1A");
+        Level2Answer1B = PlayerPrefs.GetString("Level2Answer1B");
+        Level2Answer1C = PlayerPrefs.GetString("Level2Answer1C");
+        Level2CorrectAnswer1 = PlayerPrefs.GetInt("Level2CorrectAnswer1");
+        Level2Question2 = PlayerPrefs.GetString("Level2Question2");
+        Level2Answer2A = PlayerPrefs.GetString("Level2Answer2A");
+        Level2Answer2B = PlayerPrefs.GetString("Level2Answer2B");
+        Level2Answer2C = PlayerPrefs.GetString("Level2Answer2C");
+        Level2CorrectAnswer2 = PlayerPrefs.GetInt("Level2CorrectAnswer2");
+        Level2Question3 = PlayerPrefs.GetString("Level2Question3");
+        Level2Answer3A = PlayerPrefs.GetString("Level2Answer3A");
+        Level2Answer3B = PlayerPrefs.GetString("Level2Answer3B");
+        Level2Answer3C = PlayerPrefs.GetString("Level2Answer3C");
+        Level2CorrectAnswer3 = PlayerPrefs.GetInt("Level2CorrectAnswer3");
+        Level2Question4 = PlayerPrefs.GetString("Level2Question4");
+        Level2Answer4A = PlayerPrefs.GetString("Level2Answer4A");
+        Level2Answer4B = PlayerPrefs.GetString("Level2Answer4B");
+        Level2Answer4C = PlayerPrefs.GetString("Level2Answer4C");
+        Level2CorrectAnswer4 = PlayerPrefs.GetInt("Level2CorrectAnswer4");
+
+        Level3Question1 = PlayerPrefs.GetString("Level3Question1");
+        Level3Answer1A = PlayerPrefs.GetString("Level3Answer1A");
+        Level3Answer1B = PlayerPrefs.GetString("Level3Answer1B");
+        Level3Answer1C = PlayerPrefs.GetString("Level3Answer1C");
+        Level3CorrectAnswer1 = PlayerPrefs.GetInt("Level3CorrectAnswer1");
+        Level3Question2 = PlayerPrefs.GetString("Level3Question2");
+        Level3Answer2A = PlayerPrefs.GetString("Level3Answer2A");
+        Level3Answer2B = PlayerPrefs.GetString("Level3Answer2B");
+        Level3Answer2C = PlayerPrefs.GetString("Level3Answer2C");
+        Level3CorrectAnswer2 = PlayerPrefs.GetInt("Level3CorrectAnswer2");
+        Level3Question3 = PlayerPrefs.GetString("Level3Question3");
+        Level3Answer3A = PlayerPrefs.GetString("Level3Answer3A");
+        Level3Answer3B = PlayerPrefs.GetString("Level3Answer3B");
+        Level3Answer3C = PlayerPrefs.GetString("Level3Answer3C");
+        Level3CorrectAnswer3 = PlayerPrefs.GetInt("Level3CorrectAnswer3");
+        Level3Question4 = PlayerPrefs.GetString("Level3Question4");
+        Level3Answer4A = PlayerPrefs.GetString("Level3Answer4A");
+        Level3Answer4B = PlayerPrefs.GetString("Level3Answer4B");
+        Level3Answer4C = PlayerPrefs.GetString("Level3Answer4C");
+        Level3CorrectAnswer4 = PlayerPrefs.GetInt("Level3CorrectAnswer4");
+
+        Level4Question1 = PlayerPrefs.GetString("Level4Question1");
+        Level4Answer1A = PlayerPrefs.GetString("Level4Answer1A");
+        Level4Answer1B = PlayerPrefs.GetString("Level4Answer1B");
+        Level4Answer1C = PlayerPrefs.GetString("Level4Answer1C");
+        Level4CorrectAnswer1 = PlayerPrefs.GetInt("Level4CorrectAnswer1");
+        Level4Question2 = PlayerPrefs.GetString("Level4Question2");
+        Level4Answer2A = PlayerPrefs.GetString("Level4Answer2A");
+        Level4Answer2B = PlayerPrefs.GetString("Level4Answer2B");
+        Level4Answer2C = PlayerPrefs.GetString("Level4Answer2C");
+        Level4CorrectAnswer2 = PlayerPrefs.GetInt("Level4CorrectAnswer2");
+        Level4Question3 = PlayerPrefs.GetString("Level4Question3");
+        Level4Answer3A = PlayerPrefs.GetString("Level4Answer3A");
+        Level4Answer3B = PlayerPrefs.GetString("Level4Answer3B");
+        Level4Answer3C = PlayerPrefs.GetString("Level4Answer3C");
+        Level4CorrectAnswer3 = PlayerPrefs.GetInt("Level4CorrectAnswer3");
+        Level4Question4 = PlayerPrefs.GetString("Level4Question4");
+        Level4Answer4A = PlayerPrefs.GetString("Level4Answer4A");
+        Level4Answer4B = PlayerPrefs.GetString("Level4Answer4B");
+        Level4Answer4C = PlayerPrefs.GetString("Level4Answer4C");
+        Level4CorrectAnswer4 = PlayerPrefs.GetInt("Level4CorrectAnswer4");
 
         // Create an instance of your data
         PlayerData dataToSend = new PlayerData
         {
-            username = PlayerPrefs.GetString("username"),
-            StudentID = PlayerPrefs.GetString("StudentID"),
-            EnvID = PlayerPrefs.GetInt("EnvID"),
-            Question1 = PlayerPrefs.GetString("Question1"),
-            Answer1A = PlayerPrefs.GetString("Answer1A"),
-            Answer1B = PlayerPrefs.GetString("Answer1B"),
-            Answer1C = PlayerPrefs.GetString("Answer1C"),
-            CorrectAnswer1 = PlayerPrefs.GetInt("CorrectAnswer1"),
-            Question2 = PlayerPrefs.GetString("Question2"),
-            Answer2A = PlayerPrefs.GetString("Answer2A"),
-            Answer2B = PlayerPrefs.GetString("Answer2B"),
-            Answer2C = PlayerPrefs.GetString("Answer2C"),
-            CorrectAnswer2 = PlayerPrefs.GetInt("CorrectAnswer2"),
-            Question3 = PlayerPrefs.GetString("Question3"),
-            Answer3A = PlayerPrefs.GetString("Answer3A"),
-            Answer3B = PlayerPrefs.GetString("Answer3B"),
-            Answer3C = PlayerPrefs.GetString("Answer3C"),
-            CorrectAnswer3 = PlayerPrefs.GetInt("CorrectAnswer3"),
-            Question4 = PlayerPrefs.GetString("Question4"),
-            Answer4A = PlayerPrefs.GetString("Answer4A"),
-            Answer4B = PlayerPrefs.GetString("Answer4B"),
-            Answer4C = PlayerPrefs.GetString("Answer4C"),
-            CorrectAnswer4 = PlayerPrefs.GetInt("CorrectAnswer4"),
+        username = PlayerPrefs.GetString("username"),
+        StudentID = PlayerPrefs.GetString("StudentID"),
+
+        Level1EnvID = PlayerPrefs.GetInt("Level1EnvID"),
+        Level1Question1 = PlayerPrefs.GetString("Level1Question1"),
+        Level1Answer1A = PlayerPrefs.GetString("Level1Answer1A"),
+        Level1Answer1B = PlayerPrefs.GetString("Level1Answer1B"),
+        Level1Answer1C = PlayerPrefs.GetString("Level1Answer1C"),
+        Level1CorrectAnswer1 = PlayerPrefs.GetInt("Level1CorrectAnswer1"),
+        Level1Question2 = PlayerPrefs.GetString("Level1Question2"),
+        Level1Answer2A = PlayerPrefs.GetString("Level1Answer2A"),
+        Level1Answer2B = PlayerPrefs.GetString("Level1Answer2B"),
+        Level1Answer2C = PlayerPrefs.GetString("Level1Answer2C"),
+        Level1CorrectAnswer2 = PlayerPrefs.GetInt("Level1CorrectAnswer2"),
+        Level1Question3 = PlayerPrefs.GetString("Level1Question3"),
+        Level1Answer3A = PlayerPrefs.GetString("Level1Answer3A"),
+        Level1Answer3B = PlayerPrefs.GetString("Level1Answer3B"),
+        Level1Answer3C = PlayerPrefs.GetString("Level1Answer3C"),
+        Level1CorrectAnswer3 = PlayerPrefs.GetInt("Level1CorrectAnswer3"),
+        Level1Question4 = PlayerPrefs.GetString("Level1Question4"),
+        Level1Answer4A = PlayerPrefs.GetString("Level1Answer4A"),
+        Level1Answer4B = PlayerPrefs.GetString("Level1Answer4B"),
+        Level1Answer4C = PlayerPrefs.GetString("Level1Answer4C"),
+        Level1CorrectAnswer4 = PlayerPrefs.GetInt("Level1CorrectAnswer4"),
+
+        Level2EnvID = PlayerPrefs.GetInt("Level2EnvID"),
+        Level2Question1 = PlayerPrefs.GetString("Level2Question1"),
+        Level2Answer1A = PlayerPrefs.GetString("Level2Answer1A"),
+        Level2Answer1B = PlayerPrefs.GetString("Level2Answer1B"),
+        Level2Answer1C = PlayerPrefs.GetString("Level2Answer1C"),
+        Level2CorrectAnswer1 = PlayerPrefs.GetInt("Level2CorrectAnswer1"),
+        Level2Question2 = PlayerPrefs.GetString("Level2Question2"),
+        Level2Answer2A = PlayerPrefs.GetString("Level2Answer2A"),
+        Level2Answer2B = PlayerPrefs.GetString("Level2Answer2B"),
+        Level2Answer2C = PlayerPrefs.GetString("Level2Answer2C"),
+        Level2CorrectAnswer2 = PlayerPrefs.GetInt("Level2CorrectAnswer2"),
+        Level2Question3 = PlayerPrefs.GetString("Level2Question3"),
+        Level2Answer3A = PlayerPrefs.GetString("Level2Answer3A"),
+        Level2Answer3B = PlayerPrefs.GetString("Level2Answer3B"),
+        Level2Answer3C = PlayerPrefs.GetString("Level2Answer3C"),
+        Level2CorrectAnswer3 = PlayerPrefs.GetInt("Level2CorrectAnswer3"),
+        Level2Question4 = PlayerPrefs.GetString("Level2Question4"),
+        Level2Answer4A = PlayerPrefs.GetString("Level2Answer4A"),
+        Level2Answer4B = PlayerPrefs.GetString("Level2Answer4B"),
+        Level2Answer4C = PlayerPrefs.GetString("Level2Answer4C"),
+        Level2CorrectAnswer4 = PlayerPrefs.GetInt("Level2CorrectAnswer4"),
+
+        Level3Question1 = PlayerPrefs.GetString("Level3Question1"),
+        Level3Answer1A = PlayerPrefs.GetString("Level3Answer1A"),
+        Level3Answer1B = PlayerPrefs.GetString("Level3Answer1B"),
+        Level3Answer1C = PlayerPrefs.GetString("Level3Answer1C"),
+        Level3CorrectAnswer1 = PlayerPrefs.GetInt("Level3CorrectAnswer1"),
+        Level3Question2 = PlayerPrefs.GetString("Level3Question2"),
+        Level3Answer2A = PlayerPrefs.GetString("Level3Answer2A"),
+        Level3Answer2B = PlayerPrefs.GetString("Level3Answer2B"),
+        Level3Answer2C = PlayerPrefs.GetString("Level3Answer2C"),
+        Level3CorrectAnswer2 = PlayerPrefs.GetInt("Level3CorrectAnswer2"),
+        Level3Question3 = PlayerPrefs.GetString("Level3Question3"),
+        Level3Answer3A = PlayerPrefs.GetString("Level3Answer3A"),
+        Level3Answer3B = PlayerPrefs.GetString("Level3Answer3B"),
+        Level3Answer3C = PlayerPrefs.GetString("Level3Answer3C"),
+        Level3CorrectAnswer3 = PlayerPrefs.GetInt("Level3CorrectAnswer3"),
+        Level3Question4 = PlayerPrefs.GetString("Level3Question4"),
+        Level3Answer4A = PlayerPrefs.GetString("Level3Answer4A"),
+        Level3Answer4B = PlayerPrefs.GetString("Level3Answer4B"),
+        Level3Answer4C = PlayerPrefs.GetString("Level3Answer4C"),
+        Level3CorrectAnswer4 = PlayerPrefs.GetInt("Level3CorrectAnswer4"),
+        
+        Level4Question1 = PlayerPrefs.GetString("Level4Question1"),
+        Level4Answer1A = PlayerPrefs.GetString("Level4Answer1A"),
+        Level4Answer1B = PlayerPrefs.GetString("Level4Answer1B"),
+        Level4Answer1C = PlayerPrefs.GetString("Level4Answer1C"),
+        Level4CorrectAnswer1 = PlayerPrefs.GetInt("Level4CorrectAnswer1"),
+        Level4Question2 = PlayerPrefs.GetString("Level4Question2"),
+        Level4Answer2A = PlayerPrefs.GetString("Level4Answer2A"),
+        Level4Answer2B = PlayerPrefs.GetString("Level4Answer2B"),
+        Level4Answer2C = PlayerPrefs.GetString("Level4Answer2C"),
+        Level4CorrectAnswer2 = PlayerPrefs.GetInt("Level4CorrectAnswer2"),
+        Level4Question3 = PlayerPrefs.GetString("Level4Question3"),
+        Level4Answer3A = PlayerPrefs.GetString("Level4Answer3A"),
+        Level4Answer3B = PlayerPrefs.GetString("Level4Answer3B"),
+        Level4Answer3C = PlayerPrefs.GetString("Level4Answer3C"),
+        Level4CorrectAnswer3 = PlayerPrefs.GetInt("Level4CorrectAnswer3"),
+        Level4Question4 = PlayerPrefs.GetString("Level4Question4"),
+        Level4Answer4A = PlayerPrefs.GetString("Level4Answer4A"),
+        Level4Answer4B = PlayerPrefs.GetString("Level4Answer4B"),
+        Level4Answer4C = PlayerPrefs.GetString("Level4Answer4C"),
+        Level4CorrectAnswer4 = PlayerPrefs.GetInt("Level4CorrectAnswer4"),
         };
 
         // Convert the data object to a JSON string
@@ -159,5 +425,10 @@ public class PublishQuiz : MonoBehaviour
         {
             Debug.Log("JSON sent successfully. Server response: " + request.downloadHandler.text);
         }
+    }
+
+    public void PlayQuiz()
+    {
+        SceneManager.LoadSceneAsync(SceneToLoad);
     }
 }

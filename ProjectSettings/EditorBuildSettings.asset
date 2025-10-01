@@ -6,23 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoginScreen.unity
+    guid: f89a5a34881c14b1f926a08efeff1d29
+  - enabled: 1
     path: Assets/Scenes/SPLASH.unity
     guid: 5b0985d54106647f0a924bb32d08749a
   - enabled: 1
-    path: Assets/Scenes/SurvivalEnglish.unity
-    guid: 82c31af00be994886977c14fd9948bc5
-  - enabled: 1
-    path: Assets/Scenes/SceneA.unity
-    guid: fdf0d76d1603e4cd58dd9f4941f24a37
-  - enabled: 1
-    path: Assets/Scenes/LoginScreen.unity
-    guid: f89a5a34881c14b1f926a08efeff1d29
+    path: Assets/Scenes/NewQuizLoadQuiz.unity
+    guid: 9fbae072b2f524f51b0fab9db21100b2
   - enabled: 1
     path: Assets/Scenes/UserInputScreen.unity
     guid: 40ade284ee8b5417f9f0ff8838b2445d
   - enabled: 1
-    path: Assets/Scenes/SceneB.unity
-    guid: f79c2db67f1974d97a3617fb5c700ddb
+    path: Assets/Scenes/SceneA.unity
+    guid: fdf0d76d1603e4cd58dd9f4941f24a37
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: c3da2f17b79db4cc7918256d0d6d4de6, type: 3}
   m_UseUCBPForAssetBundles: 0

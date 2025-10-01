@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class selectCorrect : MonoBehaviour
 {
+    public int Level;
     public GameObject TabAO;
     public GameObject TabAX;
     public GameObject TabBO;
@@ -13,20 +14,21 @@ public class selectCorrect : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("CorrectAnswer" + QuestionNumber + " = " + PlayerPrefs.GetInt("CorrectAnswer" + QuestionNumber));
-        if (PlayerPrefs.GetInt("CorrectAnswer" + QuestionNumber) == 1)
+        Level = PlayerPrefs.GetInt("currentLevel");
+        Debug.Log("Level" + Level + "CorrectAnswer" + QuestionNumber + " = " + PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber));
+        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 1)
         {
             TabAO.SetActive(true);
             TabBX.SetActive(true);
             TabCX.SetActive(true);
         }
-        if (PlayerPrefs.GetInt("CorrectAnswer" + QuestionNumber) == 2)
+        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 2)
         {
             TabAX.SetActive(true);
             TabBO.SetActive(true);
             TabCX.SetActive(true);
         }
-        if (PlayerPrefs.GetInt("CorrectAnswer"+QuestionNumber) == 3)
+        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer"+QuestionNumber) == 3)
         {
             TabAX.SetActive(true);
             TabBX.SetActive(true);

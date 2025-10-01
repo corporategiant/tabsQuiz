@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class LoadAsynch : MonoBehaviour {
@@ -16,13 +17,13 @@ public class LoadAsynch : MonoBehaviour {
 	}
 	
 	private AsyncOperation async;
-	
-	
+
+
 	IEnumerator Start()
 	{
 		yield return new WaitForSeconds(Pause);
 		_levelIsLoading = true;
-		async = Application.LoadLevelAsync(SceneToLoad);
+		async = SceneManager.LoadSceneAsync(SceneToLoad);
 		if (WaitForInput == true) 
 		{
 			async.allowSceneActivation = false;
