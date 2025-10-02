@@ -17,29 +17,28 @@ namespace QRCodeShareDemo
         [DllImport("__Internal")]
         private static extern void UploadFile(Action<string> callbackMethodName);
         
-        [Header("Tabs References")]
-        [SerializeField] private Toggle tabGenerate;
-        [SerializeField] private Toggle tabRead;
+
         [Header("Panels References")]
         [SerializeField] private GameObject panelGenerate;
         [SerializeField] private GameObject panelRead;
         [Header("Style Settings References")] 
 
         [Header("Generate QR Code References")]
-        [SerializeField] private TMP_InputField contentEnterTextField;
+        
         [SerializeField] private Image showImageGenerate;
         [SerializeField] private Button generateQRCode;
         [SerializeField] private Button downloadImage;
         [Header("Read QR Code References")] 
-        [SerializeField] private TMP_InputField contentShowText;
+        
         [SerializeField] private Image showImageRead;
         [SerializeField] private Button uploadImage;
         [SerializeField] private Button readQRCode;
-        [Header("Sprite Resources")]
+        [Header("Content")]
 
 
         public string username;
         public string StudentID;
+        //public TextMeshProUGUI URL;
 
         private Texture2D currentQRCodeGenerate = null;
         private Texture2D currentQRCodeRead = null;
@@ -48,8 +47,7 @@ namespace QRCodeShareDemo
         {
             username = PlayerPrefs.GetString("username");
             StudentID = PlayerPrefs.GetString("StudentID");
-            // assign switch tabs
-            tabGenerate.onValueChanged.AddListener(OnSwitchTabs);
+
         }
         
         private Texture2D HelloWorldQRCode(string content)
@@ -75,8 +73,8 @@ namespace QRCodeShareDemo
         {
             panelGenerate.SetActive(isOn);
             panelRead.SetActive(!isOn);
-            tabGenerate.GetComponent<Image>().color = isOn ? Color.cyan : Color.white;
-            tabRead.GetComponent<Image>().color = isOn ? Color.white : Color.cyan;
+            
+           
         }
 
         public void GenerateQRCode()
@@ -99,8 +97,10 @@ namespace QRCodeShareDemo
         {
             if (currentQRCodeRead != null)
             {
-                contentShowText.text = QRCodeShare.ReadQRCodeImage(currentQRCodeRead);
+                
                 PlayerPrefs.SetString("QRQuizURL",QRCodeShare.ReadQRCodeImage(currentQRCodeRead));
+                //URL.text = PlayerPrefs.GetString("QRQuizURL");
+
             }
             else
             {

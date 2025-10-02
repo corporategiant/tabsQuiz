@@ -1,22 +1,24 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking; // Required for UnityWebRequest
+using TMPro;
 
 public class JsonReceiver : MonoBehaviour
 {
     public string phpScriptURL = "http://yourserver.com/data.php"; // Replace with your PHP script's URL
+    public TextMeshProUGUI Question1;
+    
+    
 
     // Define a class to match your JSON structure
     [System.Serializable]
     public class MyData
     {
-        public string playerName;
-        public int score;
-        public float health;
+        public string Level1Question1;
         // Add other fields as per your JSON
     }
 
-    void Start()
+    public void FetchData()
     {
         StartCoroutine(FetchJsonData());
     }
@@ -35,9 +37,9 @@ public class JsonReceiver : MonoBehaviour
                 // Deserialize the JSON string
                 MyData data = JsonUtility.FromJson<MyData>(jsonString);
 
-                Debug.Log("Parsed Name: " + data.playerName);
-                Debug.Log("Parsed Value: " + data.score);
-                Debug.Log("Parsed Value: " + data.health);
+                Debug.Log("Question 1 : " + data.Level1Question1);
+                Question1.text = data.Level1Question1;
+
             }
             else
             {
