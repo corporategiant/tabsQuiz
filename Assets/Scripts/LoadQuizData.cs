@@ -219,6 +219,7 @@ public class LoadQuizData : MonoBehaviour
                 MyData data = JsonUtility.FromJson<MyData>(jsonString);
 
                 Debug.Log("Question 1 : " + data.Level1Question1);
+                username = data.username;
                 Level1Question1 = data.Level1Question1;
                 Level1Answer1A = data.Level1Answer1A;
                 Level1Answer1B = data.Level1Answer1B;
@@ -336,7 +337,8 @@ public class LoadQuizData : MonoBehaviour
     { 
        //Question1.text = PlayerPrefs.GetString("Level1Question1");
         Debug.Log("Level 1 Question 1 = " + PlayerPrefs.GetString("Level1Question1"));
-
+        
+        PlayerPrefs.SetString("QuizMaster", username);  
         PlayerPrefs.SetString("Level1Question1", Level1Question1);  
         PlayerPrefs.SetString("Level1Answer1A", Level1Answer1A);
         PlayerPrefs.SetString("Level1Answer1B", Level1Answer1B);

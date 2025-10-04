@@ -16,11 +16,23 @@ public class LoadScene : MonoBehaviour
             PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel") + 1);
             SceneToLoad = "SceneA";
         }
+        else
+        {
+            PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel") + 1);
+            SceneToLoad = "SceneA";
+        }
     }
 
     public void LoadNextScene()
     {
+        if (PlayerPrefs.GetInt("currentLevel")==4)
+        {
+            SceneManager.LoadScene("SceneB");
+        }
+        else 
+        {
         SceneManager.LoadScene(SceneToLoad);
+        }
     }
 
 

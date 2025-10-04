@@ -15,52 +15,55 @@ public class loadEnv : MonoBehaviour
     public GameObject Env8;
     public GameObject Env9;
     public GameObject Env10;
+    public int Level;
   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (PlayerPrefs.GetInt("EnvID") == 0)
+        Level = PlayerPrefs.GetInt("currentLevel");
+        Debug.Log("Level" + Level + "EnvID = " + (PlayerPrefs.GetInt("Level" + Level + "EnvID")));
+        if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 0)
         {
             Env0.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 1)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 1)
         {
             Env1.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 2)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 2)
         {
             Env2.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 3)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 3)
         {
             Env3.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 4)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 4)
         {
             Env4.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 5)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 5)
         {
             Env5.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 6)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 6)
         {
             Env6.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 7)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 7)
         {
             Env7.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 8)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 8)
         {
             Env8.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 9)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 9)
         {
             Env9.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("EnvID") == 10)
+        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 10)
         {
             Env10.SetActive(true);
         }

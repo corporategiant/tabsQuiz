@@ -75,15 +75,15 @@ public class loadText : MonoBehaviour
         Text3C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3C");
         Text3C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3C");
         //Q4
-        TextQ4.text = PlayerPrefs.GetString("Level" + Level + "Question3");
+        TextQ4.text = PlayerPrefs.GetString("Level" + Level + "Question4");
         //TextQ.ForceMeshUpdate(true);
-        Debug.Log("Level" + Level + "Question3 : " + PlayerPrefs.GetString("Level" + Level + "Question3"));
-        Text4A_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3A");
-        Text4A_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3A");
-        Text4B_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3B");
-        Text4B_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3B");
-        Text4C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3C");
-        Text4C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3C");
+        Debug.Log("Level" + Level + "Question4 : " + PlayerPrefs.GetString("Level" + Level + "Question4"));
+        Text4A_O.text = PlayerPrefs.GetString("Level" + Level + "Answer4A");
+        Text4A_X.text = PlayerPrefs.GetString("Level" + Level + "Answer4A");
+        Text4B_O.text = PlayerPrefs.GetString("Level" + Level + "Answer4B");
+        Text4B_X.text = PlayerPrefs.GetString("Level" + Level + "Answer4B");
+        Text4C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer4C");
+        Text4C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer4C");
 
 
     }

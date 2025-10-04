@@ -3,7 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class envSelect3D : MonoBehaviour
 {
+    public int Level;
     public int envID;
+    public GameObject UserInput;
+    public GameObject[] env;
     public GameObject env0;
     public GameObject env1;
     public GameObject env2;
@@ -167,9 +170,79 @@ public class envSelect3D : MonoBehaviour
 
     public void SubmitInput()
     {
-        PlayerPrefs.SetInt("EnvID", envID);
-        Debug.Log("EnvID submitted - " + envID);
+        Level = UserInput.GetComponent<SetLevel>().Level;
+        PlayerPrefs.SetInt("Level"+Level+"EnvID", envID);
+        Debug.Log("Level"+Level+"EnvID submitted - " + envID);
     }
+
+        public void SetLevel()
+    {
+        Level = UserInput.GetComponent<SetLevel>().Level;
+        envID = PlayerPrefs.GetInt("Level"+Level+"EnvID");
+        Debug.Log("Level"+Level+"EnvID submitted - " + envID);
+        foreach (GameObject env in env){
+            env.SetActive(false);
+        }
+
+                if (envID == 0)
+        {
+            env0.SetActive(true);         
+        }
+        else if (envID == 1)
+        {  
+            env1.SetActive(true);
+        }
+        if (envID == 2)
+        {
+            env2.SetActive(true);
+
+        }
+        else if (envID == 3)
+        {
+            env3.SetActive(true);
+        }
+        else if (envID == 4)
+        {
+            env4.SetActive(true);
+
+        }
+        else if (envID == 5)
+        {
+            env5.SetActive(true);
+
+        }
+        else if (envID == 6)
+        {
+            env6.SetActive(true);
+
+        }
+        if (envID == 7)
+        {
+            env7.SetActive(true);
+
+        }
+        else if (envID == 8)
+        {
+            env8.SetActive(true);
+
+        }
+        else if (envID == 9)
+        {
+            env9.SetActive(true);
+
+        }
+        else if (envID == 10)
+        {
+            env10.SetActive(true);
+
+        }
+
+
+
+
+
+    }
+
     public void LoadLevel()
     {
         SceneManager.LoadSceneAsync(SceneToLoad);

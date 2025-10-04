@@ -52,17 +52,19 @@ public class ClickableTextBoxes : MonoBehaviour {
 				// this object was clicked - do something
 				Debug.Log ("Clickable Says Was Clicked");
 
-                    TextBoxOn.GetComponent<SpringScale> ().startDelaySpringScale ();
+                // close all other textboxes
+
 				if (MultipleTextBox == true) 
 				{
                     foreach (GameObject Textbox in TextBoxes)
                     {
-
                         Textbox.GetComponent<SpringScale>().ResetScale();
-
                     }
+				}   
+
+                // open textbox
                     
-				}
+                TextBoxOn.GetComponent<SpringScale> ().startDelaySpringScale ();
 
                 }
 

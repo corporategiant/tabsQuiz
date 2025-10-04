@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 319562926}
   TabAX: {fileID: 1067772355}
@@ -451,6 +452,7 @@ MonoBehaviour:
   Env8: {fileID: 469477090}
   Env9: {fileID: 2071941993}
   Env10: {fileID: 2071941993}
+  Level: 0
 --- !u!114 &23916157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6571,6 +6573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 1020141462}
   TabAX: {fileID: 433646474}
@@ -7534,6 +7537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 773548086}
   TabAX: {fileID: 1621905691}
@@ -7609,6 +7613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 1785980262}
   TabAX: {fileID: 1970611014}
@@ -10545,6 +10550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 1295890900}
   TabAX: {fileID: 1445510678}
@@ -10776,6 +10782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 288904176}
   TabAX: {fileID: 660379806}
@@ -19045,6 +19052,7 @@ GameObject:
   - component: {fileID: 1763128999}
   - component: {fileID: 1763128998}
   - component: {fileID: 1763128997}
+  - component: {fileID: 1763129000}
   m_Layer: 5
   m_Name: ANSWERBOX_4
   m_TagString: Untagged
@@ -19135,6 +19143,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1763129000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763128995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
+  Level: 0
+  TabAO: {fileID: 1339460872}
+  TabAX: {fileID: 132069049}
+  TabBO: {fileID: 508305365}
+  TabBX: {fileID: 1269736915}
+  TabCO: {fileID: 2129239444}
+  TabCX: {fileID: 1573739953}
+  QuestionNumber: 4
 --- !u!1001 &1766244551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24296,10 +24325,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a444c5e3e5e43e89c5a7ee2e8789f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MultipleTextBox: 0
+  MultipleTextBox: 1
   TextBoxOn: {fileID: 4396197508104723203}
   Player: {fileID: 600945887}
-  TextBoxes: []
+  TextBoxes:
+  - {fileID: 4396197508104723203}
+  - {fileID: 2702616488769909465}
+  - {fileID: 1315567687}
+  - {fileID: 355803752}
+  - {fileID: 941210571}
+  - {fileID: 19429509}
+  - {fileID: 634948355}
+  - {fileID: 1954957443}
+  - {fileID: 1893159702}
+  - {fileID: 1151975535}
   TextBoxesOn: 1
   TextBoxClickable: 0
 --- !u!65 &2127090320
@@ -25886,6 +25925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b124b73ca3d3e4d09af5e848e4764303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 23916152}
   Level: 0
   TabAO: {fileID: 8041659704137734767}
   TabAX: {fileID: 1689408202}
