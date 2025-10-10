@@ -6,6 +6,7 @@ public class UserInputTextManager : MonoBehaviour
 {
     public int Level;
     //public GameObject UserInput;
+    public TextMeshProUGUI LevelText;
     public TextMeshProUGUI TextQ;
     public TextMeshProUGUI PlaceholderTextQ;
     public TextMeshProUGUI TextA;
@@ -25,6 +26,7 @@ public class UserInputTextManager : MonoBehaviour
     public GameObject oBoxB;
     public GameObject oBoxC;
     public GameObject envSelect3D;
+    public GameObject chSelect3D;
     public GameObject ErrorMessage;
     public bool lastPanel;
     public int QuestionNumber;
@@ -35,11 +37,13 @@ public class UserInputTextManager : MonoBehaviour
 
     public void Start()
     {
-        Level = PlayerPrefs.GetInt("Level");
+        Level = PlayerPrefs.GetInt("currentLevel");
+        LevelText.text = "Level " + Level;
     }
     public void LoadQuiz()
     {
-        Level = PlayerPrefs.GetInt("Level");
+        Level = PlayerPrefs.GetInt("currentLevel");
+        LevelText.text = "Level " + Level;
         string savedText = PlayerPrefs.GetString("Level" + Level + "Question" + QuestionNumber);
         Debug.Log("Loaded Text" + savedText);
         InputQ.text = savedText;
@@ -87,8 +91,6 @@ public class UserInputTextManager : MonoBehaviour
             if (lastPanel == true)
             {
                 envSelect3D.SetActive(true);
-                envSelect3D.GetComponent<SwitchSubmitLastLevel>().CheckLast();
-                //SceneManager.LoadSceneAsync(SceneToLoad);
             }
         }
         else

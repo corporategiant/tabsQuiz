@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class envSelect3D : MonoBehaviour
 {
-    public int Level;
+    public int currentLevel;
     public int envID;
     public GameObject UserInput;
     public GameObject[] env;
@@ -170,16 +170,16 @@ public class envSelect3D : MonoBehaviour
 
     public void SubmitInput()
     {
-        Level = UserInput.GetComponent<SetLevel>().Level;
-        PlayerPrefs.SetInt("Level"+Level+"EnvID", envID);
-        Debug.Log("Level"+Level+"EnvID submitted - " + envID);
+        currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
+        PlayerPrefs.SetInt("Level"+currentLevel+"EnvID", envID);
+        Debug.Log("Level"+currentLevel+"EnvID submitted - " + envID);
     }
 
         public void SetLevel()
     {
-        Level = UserInput.GetComponent<SetLevel>().Level;
-        envID = PlayerPrefs.GetInt("Level"+Level+"EnvID");
-        Debug.Log("Level"+Level+"EnvID submitted - " + envID);
+        currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
+        envID = PlayerPrefs.GetInt("Level"+currentLevel+"EnvID");
+        Debug.Log("Level"+currentLevel+"EnvID submitted - " + envID);
         foreach (GameObject env in env){
             env.SetActive(false);
         }

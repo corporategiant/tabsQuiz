@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -301815450448535257, guid: c5f9b0e648b9f4903ad78190070b8e96, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e09286177b9f84034bb2f10c3d8d18e0, type: 2}
     - target: {fileID: 689511098613185400, guid: c5f9b0e648b9f4903ad78190070b8e96, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -148,6 +152,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2cd68d1a5eaa04594a8b9a4efe0491a9, type: 2}
+    - target: {fileID: 5707504244791818602, guid: c5f9b0e648b9f4903ad78190070b8e96, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e928a0ee4a4142b4971fc40a782d02c, type: 2}
     - target: {fileID: 5794564596642365454, guid: c5f9b0e648b9f4903ad78190070b8e96, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -230,7 +238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbea6235c7103412c870e0f22b05abc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickeffect: {fileID: 0}
+  clickEffect: {fileID: 0}
   clickableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+  attackSpeed: 1.5
+  attackDelay: 0.3
+  attackDistance: 1.5
+  attackDamage: 1
+  hitEffect: {fileID: 0}
