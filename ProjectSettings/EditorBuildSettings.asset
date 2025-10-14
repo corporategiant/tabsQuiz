@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/LoginScreen.unity
-    guid: 55ff1bf2de29e40ee8e245f17ece1df9
+    guid: ecfdcdf803f4749e59f008b46348e53f
   - enabled: 1
     path: Assets/Scenes/LandscapeMode.unity
     guid: 97824f4984e5e4d178c466f259152be6

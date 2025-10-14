@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class selectCorrect : MonoBehaviour
 {
+    public string username;
+    public string StudentID;
     public GameObject Manager;
     public int Level;
     public GameObject TabAO;
@@ -15,21 +17,24 @@ public class selectCorrect : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
+
         Level = Manager.GetComponent<loadText>().Level;
-        Debug.Log("Level" + Level + "CorrectAnswer" + QuestionNumber + " = " + PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber));
-        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 1)
+        Debug.Log(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber + " = " + PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber));
+        if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber) == 1)
         {
             TabAO.SetActive(true);
             TabBX.SetActive(true);
             TabCX.SetActive(true);
         }
-        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 2)
+        if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber) == 2)
         {
             TabAX.SetActive(true);
             TabBO.SetActive(true);
             TabCX.SetActive(true);
         }
-        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer"+QuestionNumber) == 3)
+        if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer"+QuestionNumber) == 3)
         {
             TabAX.SetActive(true);
             TabBX.SetActive(true);

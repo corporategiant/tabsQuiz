@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 public class UserInputTextManager : MonoBehaviour
 {
+    public string username;
+    public string StudentID;
     public int Level;
     //public GameObject UserInput;
     public TextMeshProUGUI LevelText;
@@ -39,32 +41,36 @@ public class UserInputTextManager : MonoBehaviour
     {
         Level = PlayerPrefs.GetInt("currentLevel");
         LevelText.text = "Level " + Level;
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
     }
     public void LoadQuiz()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
         Level = PlayerPrefs.GetInt("currentLevel");
         LevelText.text = "Level " + Level;
-        string savedText = PlayerPrefs.GetString("Level" + Level + "Question" + QuestionNumber);
-        Debug.Log("Loaded Text" + savedText);
+        string savedText = PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Question" + QuestionNumber);
+        Debug.Log("Loaded Text Level" + Level + "(" + username + StudentID + ")" +  ": " + savedText);
         InputQ.text = savedText;
-        InputA.text = PlayerPrefs.GetString("Level" + Level + "Answer" + QuestionNumber + "A");
-        InputB.text = PlayerPrefs.GetString("Level" + Level + "Answer" + QuestionNumber + "B");
-        InputC.text = PlayerPrefs.GetString("Level" + Level + "Answer" + QuestionNumber + "C");
-        if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 1)
+        InputA.text = PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "A");
+        InputB.text = PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "B");
+        InputC.text = PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "C");
+        if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber) == 1)
         {
             oBoxA.SetActive(true);
             oBoxB.SetActive(false);
             oBoxC.SetActive(false);
             CorrectAnswerSelected = true;
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 2)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber) == 2)
         {
             oBoxA.SetActive(false);
             oBoxB.SetActive(true);
             oBoxC.SetActive(false);
             CorrectAnswerSelected = true;
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber) == 3)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber) == 3)
         {
             oBoxA.SetActive(false);
             oBoxB.SetActive(false);
@@ -77,15 +83,15 @@ public class UserInputTextManager : MonoBehaviour
     {
         if (CorrectAnswerSelected == true)
         {
-            PlayerPrefs.SetString("Level" + Level + "Question" + QuestionNumber, TextQ.text);
-            PlayerPrefs.SetString("Level" + Level + "Answer" + QuestionNumber + "A", TextA.text);
-            PlayerPrefs.SetString("Level" + Level + "Answer" + QuestionNumber + "B", TextB.text);
-            PlayerPrefs.SetString("Level" + Level + "Answer" + QuestionNumber + "C", TextC.text);
+            PlayerPrefs.SetString(username + StudentID + "Level" + Level + "Question" + QuestionNumber, TextQ.text);
+            PlayerPrefs.SetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "A", TextA.text);
+            PlayerPrefs.SetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "B", TextB.text);
+            PlayerPrefs.SetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "C", TextC.text);
             PlayerPrefs.Save();
-            Debug.Log("Text Saved" + PlayerPrefs.GetString("Level" + Level + "Question" + QuestionNumber));
-            Debug.Log(PlayerPrefs.GetString("Level" + Level + "Answer" + QuestionNumber + "A"));
-            Debug.Log(PlayerPrefs.GetString("Level" + Level + "Answer" + QuestionNumber + "B"));
-            Debug.Log(PlayerPrefs.GetString("Level" + Level + "Answer" + QuestionNumber + "C"));
+            Debug.Log("Text Saved" + PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Question" + QuestionNumber));
+            Debug.Log(PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "A"));
+            Debug.Log(PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "B"));
+            Debug.Log(PlayerPrefs.GetString(username + StudentID + "Level" + Level + "Answer" + QuestionNumber + "C"));
             ThisPanel.SetActive(false);
             NextPanel.SetActive(true);
             if (lastPanel == true)
@@ -102,8 +108,8 @@ public class UserInputTextManager : MonoBehaviour
 
     public void SaveCorrectAnswerA()
     {
-        PlayerPrefs.SetInt("Level" + Level + "CorrectAnswer" + QuestionNumber, 1);
-        Debug.Log("Level" + Level + QuestionNumber + "Correct Answer Saved = " + PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber));
+        PlayerPrefs.SetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber, 1);
+        Debug.Log(username + StudentID + "Level" + Level + QuestionNumber + "Correct Answer Saved = " + PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber));
         oBoxA.SetActive(true);
         oBoxB.SetActive(false);
         oBoxC.SetActive(false);
@@ -112,8 +118,8 @@ public class UserInputTextManager : MonoBehaviour
 
     public void SaveCorrectAnswerB()
     {
-        PlayerPrefs.SetInt("Level" + Level + "CorrectAnswer" + QuestionNumber, 2);
-        Debug.Log("Level" + Level + QuestionNumber + "Correct Answer Saved = " + PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber));
+        PlayerPrefs.SetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber, 2);
+        Debug.Log(username + StudentID + "Level" + Level + QuestionNumber + "Correct Answer Saved = " + PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber));
 
         oBoxA.SetActive(false);
         oBoxB.SetActive(true);
@@ -122,8 +128,8 @@ public class UserInputTextManager : MonoBehaviour
     }
     public void SaveCorrectAnswerC()
     {
-        PlayerPrefs.SetInt("Level" + Level + "CorrectAnswer" + QuestionNumber, 3);
-        Debug.Log("Level" + Level + QuestionNumber + "Correct Answer Saved = " + PlayerPrefs.GetInt("Level" + Level + "CorrectAnswer" + QuestionNumber));
+        PlayerPrefs.SetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber, 3);
+        Debug.Log(username + StudentID + "Level" + Level + QuestionNumber + "Correct Answer Saved = " + PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "CorrectAnswer" + QuestionNumber));
 
         oBoxA.SetActive(false);
         oBoxB.SetActive(false);

@@ -4,6 +4,8 @@ using System;
 
 public class loadText : MonoBehaviour
 {
+    public string username;
+    public string StudentID;
     public int Level;
     [Header("Q1")]
     public TextMeshProUGUI TextQ1;
@@ -42,48 +44,50 @@ public class loadText : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
         Level = PlayerPrefs.GetInt("currentLevel");
         //Q1
-        TextQ1.text = PlayerPrefs.GetString("Level" + Level + "Question1");
+        TextQ1.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Question1");
         //TextQ.ForceMeshUpdate(true);
-        Debug.Log("Question1 : " + PlayerPrefs.GetString("Level" + Level + "Question1"));
-        Text1A_O.text = PlayerPrefs.GetString("Level" + Level + "Answer1A");
-        Text1A_X.text = PlayerPrefs.GetString("Level" + Level + "Answer1A");
-        Text1B_O.text = PlayerPrefs.GetString("Level" + Level + "Answer1B");
-        Text1B_X.text = PlayerPrefs.GetString("Level" + Level + "Answer1B");
-        Text1C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer1C");
-        Text1C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer1C");
+        Debug.Log("Question1 : " + PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Question1"));
+        Text1A_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer1A");
+        Text1A_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer1A");
+        Text1B_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer1B");
+        Text1B_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer1B");
+        Text1C_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer1C");
+        Text1C_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer1C");
  
         //Q2
-        TextQ2.text = PlayerPrefs.GetString("Level" + Level + "Question2");
+        TextQ2.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Question2");
         //TextQ.ForceMeshUpdate(true);
-        Debug.Log("Level" + Level + "Question2 : " + PlayerPrefs.GetString("Level" + Level + "Question2"));
-        Text2A_O.text = PlayerPrefs.GetString("Level" + Level + "Answer2A");
-        Text2A_X.text = PlayerPrefs.GetString("Level" + Level + "Answer2A");
-        Text2B_O.text = PlayerPrefs.GetString("Level" + Level + "Answer2B");
-        Text2B_X.text = PlayerPrefs.GetString("Level" + Level + "Answer2B");
-        Text2C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer2C");
-        Text2C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer2C");
+        Debug.Log(username+StudentID+"Level" + Level + "Question2 : " + PlayerPrefs.GetString("Level" + Level + "Question2"));
+        Text2A_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer2A");
+        Text2A_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer2A");
+        Text2B_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer2B");
+        Text2B_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer2B");
+        Text2C_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer2C");
+        Text2C_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer2C");
         //Q3
-        TextQ3.text = PlayerPrefs.GetString("Level" + Level + "Question3");
+        TextQ3.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Question3");
         //TextQ.ForceMeshUpdate(true);
-        Debug.Log("Level" + Level + "Question3 : " + PlayerPrefs.GetString("Level" + Level + "Question3"));
-        Text3A_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3A");
-        Text3A_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3A");
-        Text3B_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3B");
-        Text3B_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3B");
-        Text3C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer3C");
-        Text3C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer3C");
+        Debug.Log(username+StudentID+"Level" + Level + "Question3 : " + PlayerPrefs.GetString("Level" + Level + "Question3"));
+        Text3A_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer3A");
+        Text3A_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer3A");
+        Text3B_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer3B");
+        Text3B_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer3B");
+        Text3C_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer3C");
+        Text3C_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer3C");
         //Q4
-        TextQ4.text = PlayerPrefs.GetString("Level" + Level + "Question4");
+        TextQ4.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Question4");
         //TextQ.ForceMeshUpdate(true);
-        Debug.Log("Level" + Level + "Question4 : " + PlayerPrefs.GetString("Level" + Level + "Question4"));
-        Text4A_O.text = PlayerPrefs.GetString("Level" + Level + "Answer4A");
-        Text4A_X.text = PlayerPrefs.GetString("Level" + Level + "Answer4A");
-        Text4B_O.text = PlayerPrefs.GetString("Level" + Level + "Answer4B");
-        Text4B_X.text = PlayerPrefs.GetString("Level" + Level + "Answer4B");
-        Text4C_O.text = PlayerPrefs.GetString("Level" + Level + "Answer4C");
-        Text4C_X.text = PlayerPrefs.GetString("Level" + Level + "Answer4C");
+        Debug.Log(username+StudentID+"Level" + Level + "Question4 : " + PlayerPrefs.GetString("Level" + Level + "Question4"));
+        Text4A_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer4A");
+        Text4A_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer4A");
+        Text4B_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer4B");
+        Text4B_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer4B");
+        Text4C_O.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer4C");
+        Text4C_X.text = PlayerPrefs.GetString(username+StudentID+"Level" + Level + "Answer4C");
 
 
     }

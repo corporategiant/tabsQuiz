@@ -15,7 +15,9 @@ public class NewQuiz : MonoBehaviour
     public void ResetQuiz()
     {
         PlayerPrefs.SetInt("NewQuiz", 1);
-        PlayerPrefs.SetInt("TestLocal", 0);
+        PlayerPrefs.SetInt("PlayEdit", 0);
+        PlayerPrefs.SetInt("TestEditSave", 0);
+        PlayerPrefs.SetInt("TestEditPublish", 0);
         PlayerPrefs.SetInt("PlayPublished", 0);
         PlayerPrefs.SetInt("currentLevel", 1);
         SceneManager.LoadSceneAsync(SceneToLoad);
@@ -24,7 +26,9 @@ public class NewQuiz : MonoBehaviour
         public void LoadQuiz()
     {
         PlayerPrefs.SetInt("NewQuiz", 0);
-        PlayerPrefs.SetInt("TestLocal", 0);
+        PlayerPrefs.SetInt("PlayEdit", 0);
+        PlayerPrefs.SetInt("TestEditSave", 0);
+        PlayerPrefs.SetInt("TestEditPublish", 0);
         PlayerPrefs.SetInt("PlayPublished", 0);
         PlayerPrefs.SetInt("currentLevel", 1);
         SceneManager.LoadSceneAsync(SceneToLoad);

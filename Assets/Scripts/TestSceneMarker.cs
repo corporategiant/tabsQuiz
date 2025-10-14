@@ -5,67 +5,133 @@ using UnityEngine.SceneManagement;
 public class TestSceneMarker : MonoBehaviour
 {
     public GameObject LoadOptions;
+    public GameObject UserInput;
     public GameObject Question1;
-    public GameObject TestLevelNextLevel;
+    public GameObject PlayEdit;
+    public GameObject TestEditSave;
+    public GameObject TestEditPublish;
     public GameObject Published;
     public String SceneToLoad;
+
+    public int New_Quiz;
+    public int Play_Edit;
+    public int Test_Quiz;
+    public int Test_Saved_Quiz;
+    public int Play_Published;
+
+
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        New_Quiz = PlayerPrefs.GetInt("NewQuiz");
+        Test_Quiz = PlayerPrefs.GetInt("TestEditSave");
+        Play_Edit = PlayerPrefs.GetInt("PlayEdit");
+        Test_Saved_Quiz = PlayerPrefs.GetInt("TestEditPublish");
+        Play_Published = PlayerPrefs.GetInt("PlayPublished");
+
         if (PlayerPrefs.GetInt("NewQuiz") == 1)
         {
             LoadOptions.SetActive(false);
             Question1.SetActive(true);
-
+            PlayEdit.SetActive(false);
+            TestEditSave.SetActive(false);
+            TestEditPublish.SetActive(false);
+            Published.SetActive(false);
         }
-        else if (PlayerPrefs.GetInt("TestQuiz") == 1)
+        else if (PlayerPrefs.GetInt("PlayEdit") == 1)
         {
             LoadOptions.SetActive(false);
-            TestLevelNextLevel.SetActive(true);
+            PlayEdit.SetActive(true);
+            TestEditSave.SetActive(false);
+            TestEditPublish.SetActive(false);
+            Published.SetActive(false);
+        }
+        else if (PlayerPrefs.GetInt("TestEditSave") == 1)
+        {
+            LoadOptions.SetActive(false);
+            PlayEdit.SetActive(false);
+            TestEditSave.SetActive(true);
+            TestEditPublish.SetActive(false);
+            Published.SetActive(false);
+        }
+        else if (PlayerPrefs.GetInt("TestEditPublish") == 1)
+        {
+            LoadOptions.SetActive(false);
+            PlayEdit.SetActive(false);
+            TestEditSave.SetActive(false);
+            TestEditPublish.SetActive(true);
             Published.SetActive(false);
         }
 
         else if (PlayerPrefs.GetInt("PlayPublished") == 1)
         {
             LoadOptions.SetActive(false);
-            TestLevelNextLevel.SetActive(false);
+            PlayEdit.SetActive(false);
+            TestEditSave.SetActive(false);
+            TestEditPublish.SetActive(false);
             Published.SetActive(true);
         }
-        else 
+        else
         {
             LoadOptions.SetActive(true);
-            TestLevelNextLevel.SetActive(false);
+            PlayEdit.SetActive(false);
+            TestEditSave.SetActive(false);
+            TestEditPublish.SetActive(false);
             Published.SetActive(false);
-
         }
     }
 
     public void NewQuiz()
     {
         PlayerPrefs.SetInt("NewQuiz", 1);
-        PlayerPrefs.SetInt("TestQuiz", 0);
+        PlayerPrefs.SetInt("PlayEdit", 0);
+        PlayerPrefs.SetInt("TestEditSave", 0);
+        PlayerPrefs.SetInt("TestEditPublish", 0);
         PlayerPrefs.SetInt("PlayPublished", 0);
         PlayerPrefs.SetInt("currentLevel", 1);
+    }
+        public void Play()
+    {
+        PlayerPrefs.SetInt("NewQuiz", 0);
+        PlayerPrefs.SetInt("PlayEdit", 1);
+        PlayerPrefs.SetInt("TestEditSave", 0);
+        PlayerPrefs.SetInt("TestEditPublish", 0);
+        PlayerPrefs.SetInt("PlayPublished", 0);
+        PlayerPrefs.SetInt("currentLevel", UserInput.GetComponent<SetLevel>().currentLevel);
+        SceneManager.LoadSceneAsync(SceneToLoad);
     }
     public void TestLocal()
     {
         PlayerPrefs.SetInt("NewQuiz", 0);
-        PlayerPrefs.SetInt("TestQuiz", 1);
+        PlayerPrefs.SetInt("PlayEdit", 0);
+        PlayerPrefs.SetInt("TestEditSave", 1);
+        PlayerPrefs.SetInt("TestEditPublish", 0);
         PlayerPrefs.SetInt("PlayPublished", 0);
-        PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("Level"));
+        PlayerPrefs.SetInt("currentLevel", UserInput.GetComponent<SetLevel>().currentLevel);
+        SceneManager.LoadSceneAsync(SceneToLoad);
+    }
+        public void TestLocalSaved()
+    {
+        PlayerPrefs.SetInt("NewQuiz", 0);
+        PlayerPrefs.SetInt("PlayEdit", 0);
+        PlayerPrefs.SetInt("TestEditSave", 0);
+        PlayerPrefs.SetInt("TestEditPublish", 1);
+        PlayerPrefs.SetInt("PlayPublished", 0);
+        PlayerPrefs.SetInt("currentLevel", UserInput.GetComponent<SetLevel>().currentLevel);
         SceneManager.LoadSceneAsync(SceneToLoad);
     }
 
     public void PlayPublished()
     {
         PlayerPrefs.SetInt("NewQuiz", 0);
+        PlayerPrefs.SetInt("PlayEdit", 0);
+        PlayerPrefs.SetInt("TestEditSave", 0);
+        PlayerPrefs.SetInt("TestEditPublish", 0);
         PlayerPrefs.SetInt("PlayPublished", 1);
-        PlayerPrefs.SetInt("TestQuiz", 0);
         PlayerPrefs.SetInt("currentLevel", 1);
         SceneManager.LoadSceneAsync(SceneToLoad);
     }
-
-
 }

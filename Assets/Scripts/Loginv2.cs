@@ -66,6 +66,9 @@ public class Loginv2 : MonoBehaviour
         if (webRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Error: " + webRequest.error);
+            failMessage.SetActive(true);
+            failMessage.GetComponent<Text>().text = "Error: " + webRequest.error;
+            
         }
         else
         {
@@ -87,6 +90,7 @@ public class Loginv2 : MonoBehaviour
             if (loginSuccessful)
             {
                 Debug.Log("Login successful!");
+                failMessage.SetActive(false);
                 PlayerPrefs.SetString("StudentID", studentID);
                 PlayerPrefs.SetString("username", username);
                 PlayerPrefs.SetInt("LoggedIn", 1);
@@ -98,12 +102,12 @@ public class Loginv2 : MonoBehaviour
             else
             {
                 Debug.Log("Invalid username or password.");
-            }
+                failMessage.SetActive(true);
+                failMessage.GetComponent<Text>().text = "Invalid username or password.";
 
-            yield return new WaitForSeconds(1);
-		    loginButton.interactable = true;
-		    progressCircle.SetActive(false);
-            failMessage.SetActive(true);
+                loginButton.interactable = true;
+                progressCircle.SetActive(false);
+            }
         }
     }
 }

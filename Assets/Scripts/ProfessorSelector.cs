@@ -14,17 +14,25 @@ public class ProfessorSelector : MonoBehaviour
     public Material ProfessorSkinMat;
     public int Level;
     public int ProfessorID;
+    public string username;
+    public string StudentID;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
+
         Level = Manager.GetComponent<loadText>().Level;
-        ProfessorID = PlayerPrefs.GetInt("Level" + Level + "ProfessorID");
+        ProfessorID = PlayerPrefs.GetInt(username+StudentID+"Level" + Level + "ProfessorID");
+        foreach (GameObject Professor in Professors)
+        {
+            Professor.SetActive(false);
+        }
         Professors[ProfessorID].SetActive(true);
         ProfessorBodyMat.SetColor("_Color", ProfessorBodyColors[ProfessorID]);
         ProfessorLegMat.SetColor("_Color", ProfessorLegColors[ProfessorID]);
-        ProfessorSkinMat.SetColor("_Color", ProfessorSkinColors[ProfessorID]);
-        
+        ProfessorSkinMat.SetColor("_Color", ProfessorSkinColors[ProfessorID]);   
     }
 
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class loadEnv : MonoBehaviour
 {
+    public string username;
+    public string StudentID;
     public GameObject Env0;
     public GameObject Env1;
     public GameObject Env2;
@@ -15,55 +17,60 @@ public class loadEnv : MonoBehaviour
     public GameObject Env8;
     public GameObject Env9;
     public GameObject Env10;
+    public GameObject Env11;
+    public GameObject Env12;
+    
     public int Level;
   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
         Level = PlayerPrefs.GetInt("currentLevel");
-        Debug.Log("Level" + Level + "EnvID = " + (PlayerPrefs.GetInt("Level" + Level + "EnvID")));
-        if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 0)
+        Debug.Log(username + StudentID + "Level" + Level + "EnvID = " + (PlayerPrefs.GetInt("Level" + Level + "EnvID")));
+        if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 0)
         {
             Env0.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 1)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 1)
         {
             Env1.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 2)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 2)
         {
             Env2.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 3)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 3)
         {
             Env3.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 4)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 4)
         {
             Env4.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 5)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 5)
         {
             Env5.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 6)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 6)
         {
             Env6.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 7)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 7)
         {
             Env7.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 8)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 8)
         {
             Env8.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 9)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 9)
         {
             Env9.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt("Level" + Level + "EnvID") == 10)
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 10)
         {
             Env10.SetActive(true);
         }

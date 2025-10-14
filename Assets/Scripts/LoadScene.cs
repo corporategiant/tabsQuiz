@@ -5,6 +5,7 @@ public class LoadScene : MonoBehaviour
 {
     public string SceneToLoad;
     public int NumberOfLevels;
+    public int currentLevel;
     public string username;
     public string StudentID;
 
@@ -14,21 +15,22 @@ public class LoadScene : MonoBehaviour
         username = PlayerPrefs.GetString("username");
         StudentID = PlayerPrefs.GetString("StudentID");
         NumberOfLevels = PlayerPrefs.GetInt(username + StudentID + "NumberOfLevels");
+        currentLevel = PlayerPrefs.GetInt("currentLevel");
 
-        if (PlayerPrefs.GetInt("TestLocal") == 1)
-        {
-            SceneToLoad = "UserInputScreen";
-        }
-        if (PlayerPrefs.GetInt("TestPublished") == 1)
-        {
-            PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel") + 1);
-            SceneToLoad = "SceneA";
-        }
-        else
-        {
-            PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel") + 1);
-            SceneToLoad = "SceneA";
-        }
+        // if (PlayerPrefs.GetInt("TestLocal") == 1)
+        // {
+        //     SceneToLoad = "UserInputScreen";
+        // }
+        // if (PlayerPrefs.GetInt("TestPublished") == 1)
+        // {
+        //     PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel"));
+        //     SceneToLoad = "SceneA";
+        // }
+        // else
+        // {
+        //     PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel"));
+        //     SceneToLoad = "SceneA";
+        // }
     }
 
     public void LoadNextScene()
@@ -39,7 +41,10 @@ public class LoadScene : MonoBehaviour
         }
         else 
         {
-        SceneManager.LoadScene(SceneToLoad);
+            currentLevel++;
+            PlayerPrefs.SetInt("currentLevel",currentLevel);
+
+            SceneManager.LoadScene("SceneA");
         }
     }
 

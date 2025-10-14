@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class chSelect3D : MonoBehaviour
 {
+    public string username;
+    public string StudentID;
     public int currentLevel;
     public int chID;
     public GameObject UserInput;
@@ -16,7 +18,8 @@ public class chSelect3D : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
     }
 
     public void NextCh()
@@ -57,15 +60,26 @@ public class chSelect3D : MonoBehaviour
     public void SubmitInput()
     {
         currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
-        PlayerPrefs.SetInt("Level"+currentLevel+"ChID", chID);
-        Debug.Log("Level"+currentLevel+"EnvID submitted - " + chID);
+        PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"ChID", chID);
+        Debug.Log(username+StudentID+"Level"+currentLevel+"EnvID submitted - " + chID);
     }
 
         public void SetLevel()
     {
-        currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
-        chID = PlayerPrefs.GetInt("Level"+currentLevel+"ChID");
-        Debug.Log("Level"+currentLevel+"ChID submitted - " + chID);
+        if (PlayerPrefs.GetInt("NewQuiz") == 1)
+        
+        {
+            chID = 0;
+        }
+
+        if (PlayerPrefs.GetInt("NewQuiz") == 0)
+        
+        {
+            currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
+            chID = PlayerPrefs.GetInt(username+StudentID+"Level"+currentLevel+"ChID");
+        }
+
+        //Debug.Log(username+StudentID+"Level"+currentLevel+"ChID submitted - " + chID);
         foreach (GameObject ch in ch){
             ch.SetActive(false);
         }
