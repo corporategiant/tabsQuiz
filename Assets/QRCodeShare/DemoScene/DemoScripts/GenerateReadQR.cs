@@ -111,7 +111,7 @@ namespace QRCodeShareDemo
         {
             if (currentQRCodeGenerate != null)
             {
-                string fileName = "QRCode.png";
+                string fileName = "QRCode" + PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID") + ".png";
                 string content = Convert.ToBase64String(currentQRCodeGenerate.EncodeToPNG());
                 DownloadFile(fileName, content);
             }

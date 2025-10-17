@@ -27,7 +27,8 @@ public class Loginv2 : MonoBehaviour
     // Assign these from the Unity Editor
     public TMP_InputField usernameInput;
     public TMP_InputField studentIDInput;
-    public GameObject failMessage;
+    public GameObject errorMessage;
+    public TextMeshProUGUI errorText;
     public string serverUrl = "https://your-server-address/get_users.php";
     [SerializeField] GameObject welcomePanel;
     [SerializeField] Text user;
@@ -52,7 +53,7 @@ public class Loginv2 : MonoBehaviour
     public void OnLoginButtonClicked()
     {
         // Start a coroutine to handle the web request
-        failMessage.SetActive(false);
+        errorMessage.SetActive(false);
         loginButton.interactable = false;
         progressCircle.SetActive(true);
         StartCoroutine(AttemptLogin(usernameInput.text, studentIDInput.text));
@@ -66,8 +67,8 @@ public class Loginv2 : MonoBehaviour
         if (webRequest.result != UnityWebRequest.Result.Success)
         {
             Debug.LogError("Error: " + webRequest.error);
-            failMessage.SetActive(true);
-            failMessage.GetComponent<Text>().text = "Error: " + webRequest.error;
+            errorMessage.SetActive(true);
+            errorText.text = "Error: " + webRequest.error;
             
         }
         else
@@ -90,7 +91,7 @@ public class Loginv2 : MonoBehaviour
             if (loginSuccessful)
             {
                 Debug.Log("Login successful!");
-                failMessage.SetActive(false);
+                errorMessage.SetActive(false);
                 PlayerPrefs.SetString("StudentID", studentID);
                 PlayerPrefs.SetString("username", username);
                 PlayerPrefs.SetInt("LoggedIn", 1);
@@ -102,8 +103,8 @@ public class Loginv2 : MonoBehaviour
             else
             {
                 Debug.Log("Invalid username or password.");
-                failMessage.SetActive(true);
-                failMessage.GetComponent<Text>().text = "Invalid username or password.";
+                errorMessage.SetActive(true);
+                errorText.text = "Invalid username or password.";
 
                 loginButton.interactable = true;
                 progressCircle.SetActive(false);

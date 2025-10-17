@@ -28,6 +28,8 @@ public class CharacterDataPublish : MonoBehaviour
     public int ColourHair;
     public int ColourSkin;
 
+    public int StampNumber;
+
 
 
 
@@ -49,6 +51,8 @@ public class CharacterDataPublish : MonoBehaviour
         public int ColourLegs;
         public int ColourHair;
         public int ColourSkin;
+
+        public int StampNumber;
     }
 
 
@@ -77,6 +81,7 @@ public class CharacterDataPublish : MonoBehaviour
         ColourLegs = PlayerPrefs.GetInt(username + StudentID + "ColourLegs");
         ColourHair = PlayerPrefs.GetInt(username + StudentID + "ColourHair");
         ColourSkin = PlayerPrefs.GetInt(username + StudentID + "ColourSkin");
+        StampNumber = PlayerPrefs.GetInt(username + StudentID + "StampNumber");
 
         StartCoroutine(publishCharacterData());
     }
@@ -104,6 +109,7 @@ public class CharacterDataPublish : MonoBehaviour
         data.ColourLegs = ColourLegs;
         data.ColourHair = ColourHair;
         data.ColourSkin = ColourSkin;
+        data.StampNumber = StampNumber;
 
 
         // Convert the object to a JSON string

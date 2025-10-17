@@ -13,6 +13,7 @@ public class SetLevel : MonoBehaviour
         username = PlayerPrefs.GetString("username");
         StudentID = PlayerPrefs.GetString("StudentID");
         currentLevel = PlayerPrefs.GetInt("currentLevel");
+        NumberOfLevels = PlayerPrefs.GetInt(username + StudentID + "NumberOfLevels");
     }
 
     public void SetLevel1()

@@ -8,7 +8,7 @@ public class SimpleLoad : MonoBehaviour
 
 public void LoadLevelSimple()
 {
-    PlayerPrefs.SetInt("currentLevel", 1);
+    //PlayerPrefs.SetInt("currentLevel", 1);
     SceneManager.LoadScene(SceneToLoad);
 
 }

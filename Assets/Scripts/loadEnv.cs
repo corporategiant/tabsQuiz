@@ -21,7 +21,7 @@ public class loadEnv : MonoBehaviour
     public GameObject Env12;
     
     public int Level;
-  
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,7 +29,8 @@ public class loadEnv : MonoBehaviour
         username = PlayerPrefs.GetString("username");
         StudentID = PlayerPrefs.GetString("StudentID");
         Level = PlayerPrefs.GetInt("currentLevel");
-        Debug.Log(username + StudentID + "Level" + Level + "EnvID = " + (PlayerPrefs.GetInt("Level" + Level + "EnvID")));
+        Env0.SetActive(false);
+        Debug.Log(username + StudentID + "Level" + Level + "EnvID = " + PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID"));
         if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 0)
         {
             Env0.SetActive(true);
@@ -74,6 +75,15 @@ public class loadEnv : MonoBehaviour
         {
             Env10.SetActive(true);
         }
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 11)
+        {
+            Env11.SetActive(true);
+        }
+        else if (PlayerPrefs.GetInt(username + StudentID + "Level" + Level + "EnvID") == 12)
+        {
+            Env12.SetActive(true);
+        }
+        
 
 
     }

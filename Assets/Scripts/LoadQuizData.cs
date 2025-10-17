@@ -119,8 +119,8 @@ public class LoadQuizData : MonoBehaviour
     [System.Serializable]
     public class MyData
     {
-        public string Quizusername;
-        public string QuizStudentID;
+        public string username;
+        public string StudentID;
         public string Level1Question1;
         public string Level1Answer1A;
         public string Level1Answer1B;
@@ -243,8 +243,9 @@ public class LoadQuizData : MonoBehaviour
                 MyData data = JsonUtility.FromJson<MyData>(jsonString);
 
                 Debug.Log("Question 1 : " + data.Level1Question1);
-                QuizMasterusername = data.Quizusername;
-                QuizMasterStudentID = data.QuizStudentID;
+
+                QuizMasterusername = data.username;
+                QuizMasterStudentID = data.StudentID;
                 Level1Question1 = data.Level1Question1;
                 Level1Answer1A = data.Level1Answer1A;
                 Level1Answer1B = data.Level1Answer1B;

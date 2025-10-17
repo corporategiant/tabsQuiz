@@ -20,6 +20,15 @@ public class chSelect3D : MonoBehaviour
     {
         username = PlayerPrefs.GetString("username");
         StudentID = PlayerPrefs.GetString("StudentID");
+
+        if (PlayerPrefs.GetInt("NewQuiz") == 1)
+
+        {
+            chID = 0;
+            ch1.SetActive(false);
+            ch0.SetActive(true);
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"ChID", chID);
+        }
     }
 
     public void NextCh()
@@ -29,12 +38,14 @@ public class chSelect3D : MonoBehaviour
             ch0.SetActive(false);
             ch1.SetActive(true);
             chID = 1;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "ChID", chID);
         }
         else if (chID == 1)
         {
             ch1.SetActive(false);
             ch0.SetActive(true);
             chID = 0;
+            PlayerPrefs.SetInt(username+StudentID+"Level" + currentLevel + "ChID", chID);
         }
 
     }
@@ -47,12 +58,14 @@ public class chSelect3D : MonoBehaviour
             ch0.SetActive(false);
             ch1.SetActive(true);
             chID = 1;
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"ChID", chID);
         }
         else if (chID == 1)
         {
             ch1.SetActive(false);
             ch0.SetActive(true);
             chID = 0;
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"ChID", chID);
         }
        
     }
@@ -61,22 +74,23 @@ public class chSelect3D : MonoBehaviour
     {
         currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
         PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"ChID", chID);
-        Debug.Log(username+StudentID+"Level"+currentLevel+"EnvID submitted - " + chID);
+        Debug.Log(username+StudentID+"Level"+currentLevel+"ChID submitted - " + chID);
     }
 
         public void SetLevel()
     {
         if (PlayerPrefs.GetInt("NewQuiz") == 1)
-        
+
         {
             chID = 0;
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"ChID", chID);
         }
 
         if (PlayerPrefs.GetInt("NewQuiz") == 0)
         
         {
             currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
-            chID = PlayerPrefs.GetInt(username+StudentID+"Level"+currentLevel+"ChID");
+            chID = UserInput.GetComponent<showChID>().chID;
         }
 
         //Debug.Log(username+StudentID+"Level"+currentLevel+"ChID submitted - " + chID);

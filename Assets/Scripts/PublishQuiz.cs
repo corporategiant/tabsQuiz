@@ -449,17 +449,27 @@ public class PublishQuiz : MonoBehaviour
         // Create a UnityWebRequest for a POST request
         UnityWebRequest request = new UnityWebRequest(phpUrl, "POST");
 
+        Debug.Log("Convert the JSON string to bytes");
+
         // Convert the JSON string to bytes
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+
+        Debug.Log("Set the upload handler with the raw data");
 
         // Set the upload handler with the raw data
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
 
+        Debug.Log("Set the download handler to receive the server's response");
+
         // Set the download handler to receive the server's response
         request.downloadHandler = new DownloadHandlerBuffer();
 
+        Debug.Log("Set the Content-Type header to indicate JSON data");
+
         // Set the Content-Type header to indicate JSON data
         request.SetRequestHeader("Content-Type", "application/json");
+
+        Debug.Log("Send the request");
 
         // Send the request
         yield return request.SendWebRequest();

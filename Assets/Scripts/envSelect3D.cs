@@ -31,6 +31,14 @@ public class envSelect3D : MonoBehaviour
     {
         username = PlayerPrefs.GetString("username");
         StudentID = PlayerPrefs.GetString("StudentID");
+        if (PlayerPrefs.GetInt("NewQuiz") == 1)
+
+        {
+            envID = 0;
+            env1.SetActive(false);
+            env0.SetActive(true);
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"EnvID", envID);
+        }
     }
 
     public void NextEnv()
@@ -40,78 +48,91 @@ public class envSelect3D : MonoBehaviour
             env0.SetActive(false);
             env1.SetActive(true);
             envID = 1;
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"EnvID", envID);
         }
         else if (envID == 1)
         {
             env1.SetActive(false);
             env2.SetActive(true);
             envID = 2;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 2)
         {
             env2.SetActive(false);
             env3.SetActive(true);
             envID = 3;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 3)
         {
             env3.SetActive(false);
             env4.SetActive(true);
             envID = 4;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 4)
         {
             env4.SetActive(false);
             env5.SetActive(true);
             envID = 5;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 5)
         {
             env5.SetActive(false);
             env6.SetActive(true);
             envID = 6;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 6)
         {
             env6.SetActive(false);
             env7.SetActive(true);
             envID = 7;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 7)
         {
             env7.SetActive(false);
             env8.SetActive(true);
             envID = 8;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 8)
         {
             env8.SetActive(false);
             env9.SetActive(true);
             envID = 9;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 9)
         {
             env9.SetActive(false);
             env10.SetActive(true);
             envID = 10;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 10)
         {
             env10.SetActive(false);
             env11.SetActive(true);
             envID = 11;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 11)
         {
             env11.SetActive(false);
             env12.SetActive(true);
             envID = 12;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 12)
         {
             env12.SetActive(false);
             env0.SetActive(true);
             envID = 0;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
 
     }
@@ -124,78 +145,91 @@ public class envSelect3D : MonoBehaviour
             env0.SetActive(false);
             env12.SetActive(true);
             envID = 12;
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"EnvID", envID);
         }
         else if (envID == 1)
         {
             env1.SetActive(false);
             env0.SetActive(true);
             envID = 0;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 2)
         {
             env2.SetActive(false);
             env1.SetActive(true);
             envID = 1;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 3)
         {
             env3.SetActive(false);
             env2.SetActive(true);
             envID = 2;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 4)
         {
             env4.SetActive(false);
             env3.SetActive(true);
             envID = 3;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 5)
         {
             env5.SetActive(false);
             env4.SetActive(true);
             envID = 4;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 6)
         {
             env6.SetActive(false);
             env5.SetActive(true);
             envID = 5;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 7)
         {
             env7.SetActive(false);
             env6.SetActive(true);
             envID = 6;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 8)
         {
             env8.SetActive(false);
             env7.SetActive(true);
             envID = 7;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 9)
         {
             env9.SetActive(false);
             env8.SetActive(true);
             envID = 8;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 10)
         {
             env10.SetActive(false);
             env9.SetActive(true);
             envID = 9;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 11)
         {
             env11.SetActive(false);
             env10.SetActive(true);
             envID = 10;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
         else if (envID == 12)
         {
             env12.SetActive(false);
             env11.SetActive(true);
             envID = 11;
+            PlayerPrefs.SetInt(username + StudentID + "Level" + currentLevel + "EnvID", envID);
         }
 
     }
@@ -210,24 +244,26 @@ public class envSelect3D : MonoBehaviour
         public void SetLevel()
     {
         if (PlayerPrefs.GetInt("NewQuiz") == 1)
-        
+
         {
+            Debug.Log("NewQuiz");
             envID = 0;
+            PlayerPrefs.SetInt(username+StudentID+"Level"+currentLevel+"EnvID", envID);
         }
 
         if (PlayerPrefs.GetInt("NewQuiz") == 0)
 
         {
-            currentLevel = UserInput.GetComponent<SetLevel>().currentLevel;
-            envID = PlayerPrefs.GetInt(username + StudentID + "Level" + currentLevel + "EnvID");
-            //Debug.Log(username+StudentID+"Level"+currentLevel+"EnvID submitted - " + envID);
+            currentLevel = PlayerPrefs.GetInt("currentLevel");
+            envID = UserInput.GetComponent<showEnvID>().envID;
+            Debug.Log(username+StudentID+"Level"+currentLevel+"EnvID loaded " + envID);
         }
         
         foreach (GameObject env in env){
             env.SetActive(false);
         }
 
-                if (envID == 0)
+        if (envID == 0)
         {
             env0.SetActive(true);         
         }
@@ -235,7 +271,7 @@ public class envSelect3D : MonoBehaviour
         {  
             env1.SetActive(true);
         }
-        if (envID == 2)
+        else if (envID == 2)
         {
             env2.SetActive(true);
 
@@ -259,7 +295,7 @@ public class envSelect3D : MonoBehaviour
             env6.SetActive(true);
 
         }
-        if (envID == 7)
+        else if (envID == 7)
         {
             env7.SetActive(true);
 
@@ -277,6 +313,16 @@ public class envSelect3D : MonoBehaviour
         else if (envID == 10)
         {
             env10.SetActive(true);
+
+        }
+        else if (envID == 11)
+        {
+            env11.SetActive(true);
+
+        }
+        else if (envID == 12)
+        {
+            env12.SetActive(true);
 
         }
 

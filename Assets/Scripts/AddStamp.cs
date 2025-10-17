@@ -6,7 +6,10 @@ public class AddStamp : MonoBehaviour
 {
     public int StampNumber;
     public List<string> QuizMasters;
-    public string QuizMaster;
+    public string username;
+    public string StudentID;
+    public string QuizMasterusername;
+    public string QuizMasterStudentID;
     public GameObject[] Stamps;
     private const string ListKey = "SavedStampsStringList";
     private const string Separator = "###";
@@ -14,11 +17,15 @@ public class AddStamp : MonoBehaviour
 
     void Start()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
         
-        StampNumber = PlayerPrefs.GetInt("StampNumber");
-        QuizMaster = PlayerPrefs.GetString("QuizMaster");
+        StampNumber = PlayerPrefs.GetInt(username + StudentID + "StampNumber");
+        QuizMasterusername = PlayerPrefs.GetString("QuizMasterusername");
+        QuizMasterStudentID = PlayerPrefs.GetString("QuizMasterStudentID");
 
-        if (PlayerPrefs.GetInt("StampsListSaved")==1){
+        if (PlayerPrefs.GetInt(username + StudentID + "StampsListSaved") == 1)
+        {
             string combinedString = PlayerPrefs.GetString(ListKey);
             QuizMasters = combinedString.Split(new string[] { Separator }, System.StringSplitOptions.None).ToList();
             Debug.Log("List loaded. First item: " + QuizMasters[0]);
@@ -30,21 +37,21 @@ public class AddStamp : MonoBehaviour
 
 
         // Using Contains() for direct equality check
-        if (QuizMasters.Contains(QuizMaster))
+        if (QuizMasters.Contains(QuizMasterusername+QuizMasterStudentID))
         {
-            Debug.Log(QuizMaster+ "is in the list.");
+            Debug.Log(QuizMasterusername+QuizMasterStudentID+ "is in the list.");
         }
         else
         {
-            QuizMasters.Add(QuizMaster);
-            Debug.Log(QuizMaster+ "is NOT in the list.");
+            QuizMasters.Add(QuizMasterusername+QuizMasterStudentID);
+            Debug.Log(QuizMasterusername+QuizMasterStudentID+ "is NOT in the list.");
             Stamps[StampNumber].SetActive(true);
             StampNumber++;
-            PlayerPrefs.SetInt("STAMPNumber",StampNumber);
+            PlayerPrefs.SetInt(username + StudentID + "STAMPNumber",StampNumber);
             //Save List to PlayerPrefs
             string combinedString = string.Join(Separator, QuizMasters.ToArray());
             PlayerPrefs.SetString(ListKey, combinedString);
-            PlayerPrefs.SetInt("STAMPSListSaved",1);
+            PlayerPrefs.SetInt(username + StudentID + "STAMPSListSaved",1);
             // Ensure the data is written to disk immediately
             PlayerPrefs.Save(); 
 
