@@ -3933,7 +3933,7 @@ PrefabInstance:
       addedObject: {fileID: 3775289895739138234}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3ac1aa750e0142b7a0a2ce2b87bcfb5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7164852836343501113}
+      addedObject: {fileID: 6122376195196462461}
   m_SourcePrefab: {fileID: 100100000, guid: a3ac1aa750e0142b7a0a2ce2b87bcfb5, type: 3}
 --- !u!1 &777742285919673669 stripped
 GameObject:
@@ -4000,42 +4000,87 @@ MonoBehaviour:
   ChLook: 0
   username: 
   StudentID: 
---- !u!114 &7164852836343501113
+--- !u!114 &6122376195196462461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5255872987005049204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be15d2c42a3d5467692f7e488a7af0b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ff77db649078457681b50b628844aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StampNumber: 0
-  QuizMasters: []
-  QuizMaster: 
-  Stamps:
-  - {fileID: 6866450759508550196}
-  - {fileID: 479155133752763570}
-  - {fileID: 1041815500245287350}
-  - {fileID: 6177278639934583109}
-  - {fileID: 6406360117882752852}
-  - {fileID: 7340282187747059536}
-  - {fileID: 7880807369496474573}
-  - {fileID: 6435864657958468402}
-  - {fileID: 8132782906963175763}
-  - {fileID: 4242662623331540359}
-  - {fileID: 7633133521562705267}
-  - {fileID: 2353791037836552659}
-  - {fileID: 7489306871424799604}
-  - {fileID: 4344523291727013074}
-  - {fileID: 6454390899541681078}
-  - {fileID: 8329570615469921729}
-  - {fileID: 45553356616294257}
-  - {fileID: 5812114463570433412}
-  - {fileID: 2679701586570556320}
-  - {fileID: 7654443517295143779}
+  username: 
+  StudentID: 
+  SaveStampsPHPUrl: https://www.corporategiant.co.uk/tabsQuizData/stampsData/write_json.php
+  GetStampsPHPUrl: https://www.corporategiant.co.uk/tabsQuizData/stampsData/get_data.php
+  currentQuizMaster: 
+  currentQuizMasterusername: 
+  currentQuizMasterStudentID: 
+  filename: 
+  getStampsAtStart: 1
+  QuizMaster1: 
+  QuizMaster1isOn: 0
+  QuizMaster2: 
+  QuizMaster2isOn: 0
+  QuizMaster3: 
+  QuizMaster3isOn: 0
+  QuizMaster4: 
+  QuizMaster4isOn: 0
+  QuizMaster5: 
+  QuizMaster5isOn: 0
+  QuizMaster6: 
+  QuizMaster6isOn: 0
+  QuizMaster7: 
+  QuizMaster7isOn: 0
+  QuizMaster8: 
+  QuizMaster8isOn: 0
+  QuizMaster9: 
+  QuizMaster9isOn: 0
+  QuizMaster10: 
+  QuizMaster10isOn: 0
+  QuizMaster11: 
+  QuizMaster11isOn: 0
+  QuizMaster12: 
+  QuizMaster12isOn: 0
+  QuizMaster13: 
+  QuizMaster13isOn: 0
+  QuizMaster14: 
+  QuizMaster14isOn: 0
+  QuizMaster15: 
+  QuizMaster15isOn: 0
+  QuizMaster16: 
+  QuizMaster16isOn: 0
+  QuizMaster17: 
+  QuizMaster17isOn: 0
+  QuizMaster18: 
+  QuizMaster18isOn: 0
+  QuizMaster19: 
+  QuizMaster19isOn: 0
+  QuizMaster20: 
+  QuizMaster20isOn: 0
+  Stamp1: {fileID: 6866450759508550196}
+  Stamp2: {fileID: 479155133752763570}
+  Stamp3: {fileID: 1041815500245287350}
+  Stamp4: {fileID: 6177278639934583109}
+  Stamp5: {fileID: 6406360117882752852}
+  Stamp6: {fileID: 7340282187747059536}
+  Stamp7: {fileID: 7880807369496474573}
+  Stamp8: {fileID: 6435864657958468402}
+  Stamp9: {fileID: 8132782906963175763}
+  Stamp10: {fileID: 4242662623331540359}
+  Stamp11: {fileID: 7633133521562705267}
+  Stamp12: {fileID: 2353791037836552659}
+  Stamp13: {fileID: 7489306871424799604}
+  Stamp14: {fileID: 4344523291727013074}
+  Stamp15: {fileID: 6454390899541681078}
+  Stamp16: {fileID: 8329570615469921729}
+  Stamp17: {fileID: 45553356616294257}
+  Stamp18: {fileID: 5812114463570433412}
+  Stamp19: {fileID: 2679701586570556320}
+  Stamp20: {fileID: 7654443517295143779}
 --- !u!1 &5664689230636991645 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 769255326407303352, guid: a3ac1aa750e0142b7a0a2ce2b87bcfb5, type: 3}
