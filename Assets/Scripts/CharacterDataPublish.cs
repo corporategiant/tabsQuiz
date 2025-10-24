@@ -99,12 +99,11 @@ public class CharacterDataPublish : MonoBehaviour
         data.SpaceHelmetAddOn = SpaceHelmetAddOn;
         data.MothWingsAddOn = MothWingsAddOn;
         data.SnorkelIsOn = SnorkelIsOn;
-        data.MothWingsIsOn = SpaceHelmetAddOn;
-        data.SpaceHelmetIsOn = MothWingsAddOn;
-        data.ChLook = MothWingsAddOn;
-        data.GlassesRoundIsOn = MothWingsAddOn;
-        data.GlassesSquareIsOn = MothWingsAddOn;
-        data.TShirtIsOn = MothWingsAddOn;
+        data.MothWingsIsOn = MothWingsIsOn;
+        data.SpaceHelmetIsOn = SpaceHelmetIsOn;
+        data.GlassesRoundIsOn = GlassesRoundIsOn;
+        data.GlassesSquareIsOn = GlassesSquareIsOn;
+        data.TShirtIsOn = TShirtIsOn;
         data.ColourBody = ColourBody;
         data.ColourLegs = ColourLegs;
         data.ColourHair = ColourHair;
