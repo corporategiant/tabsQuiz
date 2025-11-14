@@ -7,10 +7,11 @@ using TMPro;
 
 
 
-public class addStampv5 : MonoBehaviour
+public class addStampv6 : MonoBehaviour
 {
     public string username;
     public string StudentID;
+    public int StampNumber;
     public TextMeshProUGUI usernametext;
     public bool EndScreen;
     public string SaveStampsPHPUrl;
@@ -151,6 +152,7 @@ public class addStampv5 : MonoBehaviour
 
         if (getStampsAtStart == true)
         {
+            
             Debug.Log("Start SetStamps");
             StartCoroutine(FetchJsonData());
             //SetStamps();
@@ -171,20 +173,16 @@ public class addStampv5 : MonoBehaviour
         foldername = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
         SaveStampsPHPUrl = "https://www.corporategiant.co.uk/tabsQuizData/stampsData/" + foldername + "/write_json.php";
         GetStampsPHPUrl = "https://www.corporategiant.co.uk/tabsQuizData/stampsData/" + foldername + "/get_data.php";
-
-        if (getStampsAtStart == true)
-        {
+  
             Debug.Log("Start SetStamps");
             StartCoroutine(FetchJsonData());
-            //SetStamps();
-            //AddStamps();
-            //StartCoroutine(SaveStamps());
-        }
+
     }
 
     
     public void FetchData()
     {
+        
         StartCoroutine(FetchJsonData());
     }
 
@@ -595,7 +593,7 @@ public class addStampv5 : MonoBehaviour
                                                                                                         QuizMaster13 = currentQuizMaster;
                                                                                                         Stamp13.SetActive(true);
                                                                                                         QuizMaster13isOn = 1;
-                                                                                                        PlayerPrefs.SetString(username + StudentID + "QuizMaster3", QuizMaster13);
+                                                                                                        PlayerPrefs.SetString(username + StudentID + "QuizMaster13", QuizMaster13);
                                                                                                         PlayerPrefs.SetInt(username + StudentID + "QuizMaster13isOn", 1);
                                                                                                         PlayerPrefs.SetInt(username + StudentID + "StampNumber", 13);
                                                                                                     }

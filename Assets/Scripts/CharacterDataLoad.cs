@@ -24,7 +24,10 @@ public class CharacterDataLoad : MonoBehaviour
     public int ColourBody;
     public int ColourLegs;
     public int ColourHair;
-    public int ColourSkin;    
+    public int ColourSkin;
+    public int StampNumber;
+
+    public bool StampScreen;
 
     // Mark the class as serializable to work with JsonUtility
     [System.Serializable]
@@ -45,12 +48,15 @@ public class CharacterDataLoad : MonoBehaviour
         public int ColourLegs;
         public int ColourHair;
         public int ColourSkin;
+        public int StampNumber;
 
     }
 
 
     void Start()
     {
+        username = PlayerPrefs.GetString("username");
+        StudentID = PlayerPrefs.GetString("StudentID");
         fileName = PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID");
         StartCoroutine(GetJsonData());
         
@@ -90,6 +96,8 @@ public class CharacterDataLoad : MonoBehaviour
                 ColourLegs = data.ColourLegs;
                 ColourHair = data.ColourHair;
                 ColourSkin = data.ColourSkin;
+                StampNumber = data.StampNumber;
+
 
 
                 PlayerPrefs.SetInt(username + StudentID + "SnorkelAddOn", SnorkelAddOn);
@@ -103,12 +111,18 @@ public class CharacterDataLoad : MonoBehaviour
                 PlayerPrefs.SetInt(username + StudentID + "ColourBody", ColourBody);
                 PlayerPrefs.SetInt(username + StudentID + "ColourLegs", ColourLegs);
                 PlayerPrefs.SetInt(username + StudentID + "ColourHair", ColourHair);
-                PlayerPrefs.SetInt(username + StudentID + "ColourSkin",ColourSkin);
-            
+                PlayerPrefs.SetInt(username + StudentID + "ColourSkin", ColourSkin);
+                PlayerPrefs.SetInt(username + StudentID + "StampNumber", StampNumber);
+
+
             }
             else
             {
                 Debug.LogError("Error fetching JSON: " + webRequest.error);
+            }
+            if (StampScreen == true)
+            {
+                this.gameObject.GetComponent<AddStamp>().StartAddStamp();
             }
         }
                      

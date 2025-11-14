@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SetQuizMastertoLocal : MonoBehaviour
+public class SetQuizMasterToLocal : MonoBehaviour
 {
     public void SetQuizMasterLocal()
     {

@@ -7,6 +7,10 @@ using UnityEngine;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 using Toggle = UnityEngine.UI.Toggle;
+using System.Collections;
+using UnityEngine.Networking;
+using System.IO;
+
 
 namespace QRCodeShareDemo
 {
@@ -47,6 +51,11 @@ namespace QRCodeShareDemo
         {
             username = PlayerPrefs.GetString("username");
             StudentID = PlayerPrefs.GetString("StudentID");
+            if (PlayerPrefs.GetInt(PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID") + "QRCodePNGSaved") == 0)
+            {
+                Debug.Log("Starting GenerateOwnQRCode");
+                GenerateOwnQRCode();
+            }
 
         }
         
@@ -56,6 +65,8 @@ namespace QRCodeShareDemo
             Texture2D QRCodeImage = QRCodeShare.CreateQRCodeImage(content, properties);
             return QRCodeImage;
         }
+
+
 
  
         
@@ -93,6 +104,15 @@ namespace QRCodeShareDemo
             
         }
 
+            public void GenerateOwnQRCode()
+        {
+ 
+            string content = "https://www.corporategiant.co.uk/tabsQuizData/"+username+StudentID+"/";
+            currentQRCodeGenerate = HelloWorldQRCode(content);
+            Debug.Log("Starting SaveQRCodetoURL");
+            SaveQRCodetoURL();
+        }
+
         public void ReadQRCode()
         {
             if (currentQRCodeRead != null)
@@ -119,6 +139,53 @@ namespace QRCodeShareDemo
             {
                 Debug.LogError("There is no generated QR code to download.");
             }
+        }
+
+        public void SaveQRCodetoURL()
+        {
+            if (currentQRCodeGenerate != null)
+            {
+                string fileName = "QR.png";
+                string content = Convert.ToBase64String(currentQRCodeGenerate.EncodeToPNG());
+                string uploadUrl = "https://corporategiant.co.uk/tabsQuizData/" + username + StudentID + "/upload.php";
+                Debug.Log("Starting SaveFiletoURL: " + uploadUrl);
+                StartCoroutine (SaveFiletoURL(uploadUrl, fileName, content));
+            }
+            else
+            {
+                Debug.LogError("There is no generated QR code to save to url.");
+            }
+        }
+
+        public IEnumerator SaveFiletoURL(string fileName, string uploadUrl, string content)
+        {
+            Debug.Log("Starting Convert to bytes");
+
+            byte[] fileData = Convert.FromBase64String(content);
+
+            Debug.Log("Starting Create a form to send the file data");
+
+            // Create a form to send the file data
+            WWWForm form = new WWWForm();
+            form.AddBinaryData("fileToUpload", fileData, fileName, "application/octet-stream");
+
+            Debug.Log("Starting Send web request");
+            // Send web request
+            using (UnityWebRequest www = UnityWebRequest.Post(uploadUrl, form))
+            {
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogError("File upload failed: " + www.error);
+                }
+                else
+                {
+                    Debug.Log("File upload complete! Server response: " + www.downloadHandler.text);
+                    PlayerPrefs.SetInt(PlayerPrefs.GetString("username") + PlayerPrefs.GetString("StudentID") + "QRCodePNGSaved",1);
+                }
+            }
+            
         }
     
         public void UploadQRCode()
